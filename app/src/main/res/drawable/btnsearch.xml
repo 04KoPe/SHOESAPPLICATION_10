@@ -1,0 +1,17 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape
+            android:shape="rectangle">
+            <solid android:color="#000000" /> <!-- Màu đen cho nền -->
+            <corners android:radius="100dp"/>
+            <stroke android:color="#000000" android:width="0.1dp" /> <!-- Màu đen cho viền, bạn có thể điều chỉnh độ rộng ở đây -->
+        </shape>
+    </item>
+    <item android:right="5dp" android:left="5dp" android:top="5dp" android:bottom="5dp">
+        <shape
+            android:shape="rectangle">
+            <corners android:radius="50dp"/>
+            <solid android:color="#A6A3A3" /> <!-- Màu nền bên trong viền, bạn có thể điều chỉnh màu ở đây -->
+        </shape>
+    </item>
+</layer-list>
