@@ -1,0 +1,755 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+
+        android:background="#F6F3F3"
+        android:orientation="horizontal"
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <LinearLayout
+            android:id="@+id/top1"
+            android:layout_width="80dp"
+            android:layout_height="120dp"
+            android:gravity="center"
+            android:background="F6F3F3">
+            <ImageView
+                android:layout_marginLeft="10dp"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:src="@drawable/back">
+
+            </ImageView>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="160dp"
+            android:layout_height="120dp"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/message_2"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:text="Oder"
+                android:textSize="35sp"
+                android:gravity="center"
+                android:textStyle="bold"
+               >
+            </TextView>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/cart"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="30dp">
+
+            </ImageView>
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/messenger"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="25dp">
+
+            </ImageView>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+   <LinearLayout
+       android:layout_below="@+id/top"
+       android:id="@+id/top2"
+       android:layout_width="match_parent"
+       android:layout_height="45dp"
+       android:orientation="horizontal"
+       android:layout_marginTop="7dp">
+
+       <androidx.appcompat.widget.AppCompatButton
+           android:layout_width="174dp"
+           android:layout_height="40dp"
+           android:background="@drawable/btn1_puschase"
+           android:text="Buy online"
+           android:textColor="#ffffff"
+           android:layout_marginLeft="10dp">
+
+       </androidx.appcompat.widget.AppCompatButton>
+
+       <androidx.appcompat.widget.AppCompatButton
+           android:layout_width="174dp"
+           android:layout_height="40dp"
+           android:background="@drawable/btn2_chung_puschare"
+           android:text="Buy as the store"
+           android:textColor="#0B0000"
+           android:layout_marginLeft="20dp">
+
+       </androidx.appcompat.widget.AppCompatButton>
+   </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:id="@+id/btndai"
+        android:orientation="horizontal"
+        android:layout_below="@+id/top2"
+        android:background="#FBE2EA"
+        android:layout_marginTop="7dp">
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="35dp"
+            android:layout_height="match_parent"
+            android:text="All"
+            android:textStyle="bold"
+            android:background="@drawable/gachchanbtn"
+            android:textSize="12dp"
+
+
+
+            >
+
+        </androidx.appcompat.widget.AppCompatButton>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+            android:text="Wait for pay"
+            android:background="#FBE2EA"
+            android:textSize="10dp"
+            >
+
+        </androidx.appcompat.widget.AppCompatButton>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="110dp"
+            android:layout_height="match_parent"
+            android:text="Are processing"
+            android:background="#FBE2EA"
+            android:textSize="10dp">
+
+        </androidx.appcompat.widget.AppCompatButton>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="85dp"
+            android:layout_height="match_parent"
+            android:text="Succsess"
+            android:background="#FBE2EA"
+            android:textSize="10dp"
+            >
+
+        </androidx.appcompat.widget.AppCompatButton>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="75dp"
+            android:layout_height="match_parent"
+            android:text="Cancellced"
+            android:background="#FBE2EA"
+            android:textSize="10dp"
+            >
+
+        </androidx.appcompat.widget.AppCompatButton>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:id="@+id/gachngangdai"
+        android:layout_below="@+id/btndai"
+        android:orientation="horizontal"
+        android:background="#B1AEAE"
+        android:layout_marginTop="7dp">
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal"
+        android:layout_below="@+id/gachngangdai"
+        android:layout_marginTop="7dp"
+        android:id="@+id/sohoadon"
+        >
+        <LinearLayout
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            >
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:text="#230710HD-001"
+                android:gravity="center"
+
+                android:textColor="#257104">
+
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            >
+            <TextView
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:text="|  10/07/2003"
+                android:gravity="center"
+                android:textColor="#8C8E8C">
+
+            </TextView>
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:text="Completed"
+            android:background="@drawable/btn_complete"
+            android:textColor="#ffffff">
+
+        </androidx.appcompat.widget.AppCompatButton>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/anh1"
+        android:layout_below="@+id/sohoadon"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:orientation="horizontal"
+        >
+        <LinearLayout
+            android:layout_marginLeft="15dp"
+            android:layout_width="140dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:src="@drawable/nike_1"
+                    >
+
+                </ImageView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Casio"
+                    android:gravity="center"
+                    android:textStyle="bold">
+
+                </TextView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:text="500.000đ"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:textColor="#EA0707">
+
+                    </TextView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="800.000đ"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        >
+
+                    </TextView>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                >
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="Repurchase"
+                    android:background="@drawable/btn2_chung_puschare">
+
+                </androidx.appcompat.widget.AppCompatButton>
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginLeft="85dp"
+            android:layout_width="140dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:src="@drawable/nike_3"
+                    >
+
+                </ImageView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Bluva"
+                    android:gravity="center"
+                    android:textStyle="bold">
+
+                </TextView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:text="300.000đ"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:textColor="#EA0707">
+
+                    </TextView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="900.000đ"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        >
+
+                    </TextView>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                >
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="Repurchase"
+                    android:background="@drawable/btn2_chung_puschare">
+
+                </androidx.appcompat.widget.AppCompatButton>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:id="@+id/btn_mualai"
+        android:orientation="horizontal"
+        android:layout_below="@+id/anh1"
+        android:gravity="center">
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:text="To rate"
+            android:background="@drawable/btn_pu_nutmualai_"
+            >
+
+        </androidx.appcompat.widget.AppCompatButton>
+
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:id="@+id/gachdai1"
+        android:layout_below="@id/btn_mualai"
+        android:layout_marginTop="10dp"
+        android:background="#D3CFCF"
+        >
+
+    </View>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal"
+        android:layout_below="@+id/gachdai1"
+        android:layout_marginTop="7dp"
+        android:id="@+id/sohoadon2"
+        >
+        <LinearLayout
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            >
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:text="#2323432HD-023"
+                android:gravity="center"
+
+                android:textColor="#257104">
+
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            >
+            <TextView
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:text="|  10/07/2003"
+                android:gravity="center"
+                android:textColor="#8C8E8C">
+
+            </TextView>
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:text="Completed"
+            android:background="@drawable/btn_complete"
+            android:textColor="#ffffff">
+
+        </androidx.appcompat.widget.AppCompatButton>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/anh2"
+        android:layout_below="@+id/gachdai1"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp"
+        >
+        <LinearLayout
+            android:layout_marginLeft="15dp"
+            android:layout_width="140dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:src="@drawable/nike_4">
+
+                </ImageView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Casio"
+                    android:gravity="center"
+                    android:textStyle="bold">
+
+                </TextView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:text="500.000đ"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:textColor="#EA0707">
+
+                    </TextView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="800.000đ"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        >
+
+                    </TextView>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                >
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="Repurchase"
+                    android:background="@drawable/btn2_chung_puschare">
+
+                </androidx.appcompat.widget.AppCompatButton>
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginLeft="85dp"
+            android:layout_width="140dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:src="@drawable/nike_5"
+                    >
+
+                </ImageView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Bluva"
+                    android:gravity="center"
+                    android:textStyle="bold">
+
+                </TextView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:text="300.000đ"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:textColor="#EA0707">
+
+                    </TextView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="900.000đ"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        >
+
+                    </TextView>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                >
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="Repurchase"
+                    android:background="@drawable/btn2_chung_puschare">
+
+                </androidx.appcompat.widget.AppCompatButton>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:id="@+id/btn_mualai2"
+        android:orientation="horizontal"
+        android:layout_below="@+id/anh2"
+        android:gravity="center">
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:text="To rate"
+            android:background="@drawable/btn_pu_nutmualai_"
+            >
+
+        </androidx.appcompat.widget.AppCompatButton>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:gravity="center"
+        android:background="#F6F3F3"
+        android:orientation="horizontal"
+        android:layout_marginTop="717dp">
+        <LinearLayout
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp">
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_home_black_24dp">
+            </ImageView>
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="50dp"
+                android:id="@+id/home"
+                android:gravity="center"
+                android:text="Home"
+                android:textColor="#0B0000"
+                android:textSize="15sp"
+                android:layout_marginTop="-15dp">
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp">
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_account_circle_black_24dp">
+            </ImageView>
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="50dp"
+                android:id="@+id/account"
+                android:gravity="center"
+                android:text="Accout"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:layout_marginTop="-15dp">
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp">
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_search_black_24dp">
+            </ImageView>
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="50dp"
+                android:id="@+id/search"
+                android:gravity="center"
+                android:text="Search"
+                android:textColor="#EC0808"
+                android:textSize="15sp"
+                android:layout_marginTop="-15dp">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp">
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_notifications__black_24dp">
+            </ImageView>
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="50dp"
+                android:id="@+id/notification"
+                android:gravity="center"
+                android:text="Notification"
+                android:textColor="#0B0000"
+                android:textSize="15sp"
+                android:layout_marginTop="-15dp">
+            </TextView>
+        </LinearLayout>
+
+
+
+    </LinearLayout>S
+
+
+</RelativeLayout>

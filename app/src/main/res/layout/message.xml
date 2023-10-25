@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <LinearLayout
+
+        android:background="#F6F3F3"
+        android:orientation="horizontal"
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="120dp">
+
+        <LinearLayout
+            android:layout_width="80dp"
+            android:layout_height="120dp"
+            android:gravity="center">
+            <ImageView
+                android:layout_marginLeft="10dp"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:src="@drawable/back">
+
+            </ImageView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="230dp"
+            android:layout_height="120dp"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/message_2"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:text="Message"
+                android:textSize="35sp"
+                android:gravity="bottom"
+                android:paddingLeft="42dp"
+                android:textStyle="bold">
+            </TextView>
+            <TextView
+                android:id="@+id/message_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Replying within a second"
+                android:textSize="19sp"
+                android:gravity="center"
+                >
+            </TextView>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="80dp"
+            android:layout_height="120dp"
+            android:gravity="center">
+            <ImageView
+                android:layout_marginLeft="10dp"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:src="@drawable/menu">
+
+            </ImageView>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="150dp"
+            android:id="@+id/btn_yesterday"
+            android:layout_height="wrap_content"
+            android:background="@drawable/nen_btn"
+            android:gravity="center"
+            android:layout_below="@+id/top"
+            android:layout_marginTop="1dp"
+            android:text="Yesterday"
+            android:layout_marginLeft="125dp">
+        </androidx.appcompat.widget.AppCompatButton>
+
+
+    <LinearLayout
+        android:layout_below="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:orientation="horizontal"
+        android:background="#FBF6F6"
+        android:layout_marginTop="53dp">
+        <LinearLayout
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="100dp"
+                android:src="@drawable/Nike_write"
+                >
+            </ImageView>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="#FBF6F6"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:text="Oder ID : 230758UMAHSI78B"
+                    android:textSize="17dp"
+                    android:paddingLeft="10dp"
+                    android:layout_marginTop="10dp">
+                </TextView>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:text="Total:đ 850.000"
+                    android:textSize="17dp"
+                    android:paddingLeft="10dp"
+                    android:layout_marginLeft="-90dp"
+
+                    >
+                </TextView>
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:text="Pakcing"
+                    android:textSize="17dp"
+                    android:textColor="#E10C0C"
+                    android:paddingLeft="10dp"
+                    android:layout_marginLeft="-140dp"
+
+                    >
+                </TextView>
+
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="280dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="370dp"
+        android:orientation="vertical"
+        android:background="#FBF6F6"
+
+        >
+        <LinearLayout
+            android:layout_marginLeft="20dp"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/lin1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Thank for you your interest in our shop please wait for a moment, we will advise you shortly.">
+
+            </TextView>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="280dp"
+            android:layout_height="40dp">
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:text="09:00"
+                android:layout_marginLeft="230dp"
+                android:gravity="bottom"
+                ></TextView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:gravity="center"
+        android:background="#F6F3F3"
+        android:orientation="horizontal"
+        android:layout_marginTop="715dp">
+        <LinearLayout
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp">
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_home_black_24dp">
+            </ImageView>
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="50dp"
+                android:id="@+id/home"
+                android:gravity="center"
+                android:text="Home"
+                android:textColor="#F91313"
+                android:textSize="15sp"
+                android:layout_marginTop="-15dp">
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp">
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_account_circle_black_24dp">
+            </ImageView>
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="50dp"
+                android:id="@+id/account"
+                android:gravity="center"
+                android:text="Accout"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:layout_marginTop="-15dp">
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp">
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_search_black_24dp">
+            </ImageView>
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="50dp"
+                android:id="@+id/search"
+                android:gravity="center"
+                android:text="Search"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:layout_marginTop="-15dp">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp">
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_notifications__black_24dp">
+            </ImageView>
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="50dp"
+                android:id="@+id/notification"
+                android:gravity="center"
+                android:text="Notification"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:layout_marginTop="-15dp">
+            </TextView>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
