@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Trạng thái khi nút được bấm -->
+    <item android:state_pressed="true">
+        <layer-list>
+            <!-- Lớp 1: Màu sau khi nhấn -->
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/red" />
+                    <corners android:radius="1dp" />
+                </shape>
+            </item>
+            <!-- Lớp 2: Màu mặc định -->
+            <item android:top="2dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/red" />
+                    <corners android:radius="1dp" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+
+    <!-- Trạng thái mặc định (khi không được bấm) -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/gray" />
+            <corners android:radius="1dp" />
+        </shape>
+    </item>
+</selector>
