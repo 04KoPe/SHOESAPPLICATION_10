@@ -1,9 +1,14 @@
 package com.example.shoesapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +16,7 @@ import java.util.List;
 import me.relex.circleindicator.CircleIndicator;
 
 public class HomePage extends AppCompatActivity {
+    BottomNavigationView btnavview;
 
     private ViewPager jViewPager;
     private CircleIndicator jCirleIndicator;
@@ -24,6 +30,7 @@ public class HomePage extends AppCompatActivity {
         list.add(new PhotoSlider(R.drawable.linkedin));
 
         return list;
+
     }
 
 
@@ -42,6 +49,30 @@ public class HomePage extends AppCompatActivity {
         jCirleIndicator.setViewPager(jViewPager);
 
 
+        btnavview = findViewById(R.id.naviBtn);
+        btnavview.setSelectedItemId(R.id.homeNav);
 
+        //dieu huong den cac trang
+        btnavview.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.accountNav:
+                        startActivity(new Intent(getApplicationContext(), account.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                    case R.id.homeNav:
+
+                        return true;
+                    case R.id.searchNav:
+
+                        return true;
+                    case R.id.notificationNav:
+
+                        return true;
+                }
+                return false;
+            }
+        });
     }
 }

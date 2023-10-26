@@ -10,14 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".detailproduct" />
-        <activity android:name=".CartActivity" />
+        <activity android:name=".HomePage" />
         <activity android:name=".ProductsActivity" />
         <activity android:name=".AccountDDNActivity" />
         <activity android:name=".categories"/>
         <activity android:name=".SignUpActivity"/>
         <activity android:name=".LogInActivity"/>
         <activity android:name=".account"/>
-        <activity android:name=".HomePage">
+        <activity android:name=".CartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

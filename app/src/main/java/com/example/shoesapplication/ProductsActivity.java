@@ -30,17 +30,17 @@ public class ProductsActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
-                    case R.id.home:
+                    case R.id.homeNav:
 
                         return true;
-                    case R.id.account:
+                    case R.id.accountNav:
                         startActivity(new Intent(getApplicationContext(), AccountDDNActivity.class));
                         overridePendingTransition(0, 0);
                         return true;
-                    case R.id.search:
+                    case R.id.searchNav:
 
                         return true;
-                    case R.id.notification:
+                    case R.id.notificationNav:
 
                         return true;
                 }

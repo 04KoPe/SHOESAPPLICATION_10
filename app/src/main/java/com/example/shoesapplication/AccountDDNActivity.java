@@ -19,22 +19,23 @@ public class AccountDDNActivity extends AppCompatActivity {
         setContentView(R.layout.activity_account_d_d_n);
 
         btnavview = findViewById(R.id.bottomNavigation);
-        btnavview.setSelectedItemId(R.id.account);
+        btnavview.setSelectedItemId(R.id.accountNav);
 
         //dieu huong den cac trang
         btnavview.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
-                    case R.id.account:
+                    case R.id.accountNav:
                         return true;
                     case R.id.home:
+                        startActivity(new Intent(getApplicationContext(), HomePage.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                    case R.id.searchNav:
 
                         return true;
-                    case R.id.search:
-
-                        return true;
-                    case R.id.notification:
+                    case R.id.notificationNav:
 
                         return true;
                 }
