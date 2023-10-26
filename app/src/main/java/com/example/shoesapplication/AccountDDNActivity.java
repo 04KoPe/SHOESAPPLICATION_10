@@ -61,7 +61,7 @@ public class AccountDDNActivity extends AppCompatActivity {
         txtcategories.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AccountDDNActivity.this, LogInActivity.class);
+                Intent intent = new Intent(AccountDDNActivity.this, categories.class);
                 startActivity(intent);
             }
         });

@@ -22,6 +22,7 @@ public class detailproduct extends AppCompatActivity {
     BottomNavigationView btnavview;
     private boolean isRed = false;
     TextView txtgiacu;
+    Button btnaddtocart;
     private Button button36,button37,button38,button39,button40,button41,button42;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -152,5 +153,15 @@ public class detailproduct extends AppCompatActivity {
         StrikethroughSpan strikethroughSpan = new StrikethroughSpan();
         spannableString.setSpan(strikethroughSpan, 0, text.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         txtgiacu.setText(spannableString);
+
+        //open pay
+        btnaddtocart=findViewById(R.id.btn_addtocart);
+        btnaddtocart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(detailproduct.this, CartActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

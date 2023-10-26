@@ -45,13 +45,13 @@ public class CartActivity extends AppCompatActivity {
         });
 
         //open pay
-        btncheckout=findViewById(R.id.btn_checkout);
-        btncheckout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(CartActivity.this, SignUpActivity.class);
-                startActivity(intent);
-            }
-        });
+//        btncheckout=findViewById(R.id.btn_checkout);
+//        btncheckout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(CartActivity.this, SignUpActivity.class);
+//                startActivity(intent);
+//            }
+//        });
     }
 }

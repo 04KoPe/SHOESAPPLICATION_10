@@ -47,8 +47,7 @@ public class account extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.accountNav:
-                        startActivity(new Intent(getApplicationContext(), AccountDDNActivity.class));
-                        overridePendingTransition(0, 0);
+
                         return true;
                     case R.id.homeNav:
                         startActivity(new Intent(getApplicationContext(), HomePage.class));

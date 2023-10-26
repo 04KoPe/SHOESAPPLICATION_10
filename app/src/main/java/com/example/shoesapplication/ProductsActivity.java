@@ -63,7 +63,7 @@ public class ProductsActivity extends AppCompatActivity {
         adapter_nike.setOnItemClickListener(new ProductsAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Product product) {
-                Intent intent = new Intent(ProductsActivity.this, CartActivity.class);
+                Intent intent = new Intent(ProductsActivity.this, detailproduct.class);
                 startActivity(intent);
             }
         });
