@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/homeNav" android:title="Home" android:icon="@drawable/ic_home_black_24dp"></item>
+    <item android:id="@+id/accountNav" android:title="Account" android:icon="@drawable/ic_account_circle_black_24dp"></item>
+    <item android:id="@+id/searchNav" android:title="Search" android:icon="@drawable/ic_search_black_24dp"></item>
+    <item android:id="@+id/notiNav" android:title="Notifications" android:icon="@drawable/ic_notifications__black_24dp"></item>
+</menu>

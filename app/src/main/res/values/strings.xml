@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">ShoesApp</string>
+    <string name="welcome_back">Hello! Welcome back, you have been missedmissed</string>
+    <string name="sign_in_Text">Sign In</string>
+    <string name="userName">Username</string>
+    <string name="passWord">Password</string>
+    <string name="loginButton">Log In</string>
+    <string name="forgotUnderline"><u>Forgot password?</u></string>
+    <string name="signInOption">Or sign in with</string>
+    <string name="signInTextU"><u>Sign In</u></string>
+    <string name="signUpTextU"><u>Sign Up</u></string>
+    <string name="title_activity_sign_in">SignInActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="SignUpText2">Sign Up</string>
+    <string name="Fill">Fill your information below or register with your social account</string>
+    <string name="confirmAgreement">Terms and Conditions</string>
+    <string name="agree">Agree with</string>
+    <string name="title_activity_sign_up">SignUpActivity</string>
+    <string name="introText">Discover the best Shoes and Deals</string>
+
+</resources>
