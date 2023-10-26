@@ -3,6 +3,8 @@ package com.example.shoesapplication;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +19,7 @@ import java.util.List;
 public class ProductsActivity extends AppCompatActivity {
     BottomNavigationView btnavview;
     RecyclerView rv;
+    ImageView imgcart, imgmess;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +34,8 @@ public class ProductsActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.homeNav:
-
+                        startActivity(new Intent(getApplicationContext(), HomePage.class));
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.accountNav:
                         startActivity(new Intent(getApplicationContext(), AccountDDNActivity.class));
@@ -56,6 +60,14 @@ public class ProductsActivity extends AppCompatActivity {
         ProductsAdapter adapter_nike = new ProductsAdapter(this, nike);
         rv.setAdapter(adapter_nike);
 
+        adapter_nike.setOnItemClickListener(new ProductsAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(Product product) {
+                Intent intent = new Intent(ProductsActivity.this, CartActivity.class);
+                startActivity(intent);
+            }
+        });
+
         rv= findViewById(R.id.recyclerview_converse);
         List<Product> converse = new ArrayList<>();
         converse.add(new Product("Converse Chuck Taylor All Star Construct",R.drawable.converse_1));
@@ -71,5 +83,27 @@ public class ProductsActivity extends AppCompatActivity {
         rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         ProductsAdapter adapter_vans = new ProductsAdapter(this, vans);
         rv.setAdapter(adapter_vans);
+
+
+
+        //open cart
+        imgcart = findViewById(R.id.cart);
+        imgcart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ProductsActivity.this, CartActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //open message
+        imgmess = findViewById(R.id.message);
+        imgmess.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ProductsActivity.this, CartActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
