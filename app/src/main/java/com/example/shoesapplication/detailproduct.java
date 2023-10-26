@@ -1,7 +1,9 @@
 package com.example.shoesapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
@@ -9,11 +11,15 @@ import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.StrikethroughSpan;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 public class detailproduct extends AppCompatActivity {
+    BottomNavigationView btnavview;
     private boolean isRed = false;
     TextView txtgiacu;
     private Button button36,button37,button38,button39,button40,button41,button42;
@@ -113,7 +119,31 @@ public class detailproduct extends AppCompatActivity {
             }
         });
 
+        btnavview = findViewById(R.id.naviBtn);
 
+        //dieu huong den cac trang
+        btnavview.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.homeNav:
+                        startActivity(new Intent(getApplicationContext(), HomePage.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                    case R.id.accountNav:
+                        startActivity(new Intent(getApplicationContext(), AccountDDNActivity.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                    case R.id.searchNav:
+
+                        return true;
+                    case R.id.notificationNav:
+
+                        return true;
+                }
+                return false;
+            }
+        });
 
 //        Gạch ngang giá tiên
         TextView txtgiacu = findViewById(R.id.textgiacu);
