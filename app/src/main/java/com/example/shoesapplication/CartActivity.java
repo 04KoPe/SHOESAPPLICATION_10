@@ -1,6 +1,10 @@
 package com.example.shoesapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -11,6 +15,8 @@ import java.util.List;
 
 public class CartActivity extends AppCompatActivity {
     RecyclerView rv;
+    ImageView imgmess;
+    Button btncheckout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,5 +32,26 @@ public class CartActivity extends AppCompatActivity {
         rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         CartAdapter adapter_cart = new CartAdapter(this, cart);
         rv.setAdapter(adapter_cart);
+
+
+        //open message
+        imgmess = findViewById(R.id.img_message);
+        imgmess.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CartActivity.this, SignUpActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //open pay
+        btncheckout=findViewById(R.id.btn_checkout);
+        btncheckout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CartActivity.this, SignUpActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

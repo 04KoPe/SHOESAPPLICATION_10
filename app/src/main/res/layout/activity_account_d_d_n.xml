@@ -54,19 +54,19 @@
         //cart
 
         <ImageView
-            android:id="@+id/cart"
+            android:id="@+id/img_cart"
             android:layout_width="26dp"
             android:layout_height="24dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             android:src="@drawable/cart"
-            app:layout_constraintRight_toLeftOf="@id/message"
+            app:layout_constraintRight_toLeftOf="@id/img_message"
             app:layout_constraintTop_toTopOf="parent" />
 
         //message
 
         <ImageView
-            android:id="@+id/message"
+            android:id="@+id/img_message"
             android:layout_width="26dp"
             android:layout_height="24dp"
             android:layout_marginTop="20dp"

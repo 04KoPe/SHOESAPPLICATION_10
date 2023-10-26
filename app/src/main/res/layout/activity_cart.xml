@@ -49,11 +49,11 @@
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="18sp"
-            app:layout_constraintRight_toLeftOf="@id/message"
+            app:layout_constraintRight_toLeftOf="@id/img_message"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/message"
+            android:id="@+id/img_message"
             android:layout_width="26dp"
             android:layout_height="24dp"
             android:layout_marginTop="40dp"
@@ -201,9 +201,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/blue_button"
-            android:clickable="true"
             android:paddingHorizontal="10dp"
             android:text="Checkout"
+            android:textColor="@color/text_color_selector"
             android:textAllCaps="false"
             android:textSize="18sp"
             android:textStyle="bold"

@@ -3,6 +3,8 @@ package com.example.shoesapplication;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +19,7 @@ import java.util.List;
 public class ProductsActivity extends AppCompatActivity {
     BottomNavigationView btnavview;
     RecyclerView rv;
+    ImageView imgcart, imgmess;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +59,14 @@ public class ProductsActivity extends AppCompatActivity {
         ProductsAdapter adapter_nike = new ProductsAdapter(this, nike);
         rv.setAdapter(adapter_nike);
 
+        rv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ProductsActivity.this, CartActivity.class);
+                startActivity(intent);
+            }
+        });
+
         rv= findViewById(R.id.recyclerview_converse);
         List<Product> converse = new ArrayList<>();
         converse.add(new Product("Converse Chuck Taylor All Star Construct",R.drawable.converse_1));
@@ -71,5 +82,27 @@ public class ProductsActivity extends AppCompatActivity {
         rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         ProductsAdapter adapter_vans = new ProductsAdapter(this, vans);
         rv.setAdapter(adapter_vans);
+
+
+
+        //open cart
+        imgcart = findViewById(R.id.img_cart);
+        imgcart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ProductsActivity.this, CartActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //open message
+        imgmess = findViewById(R.id.img_message);
+        imgmess.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ProductsActivity.this, CartActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
