@@ -15,7 +15,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class AccountDDNActivity extends AppCompatActivity {
 
     BottomNavigationView btnavview;
-    TextView txtpurchases, txtcategories;
+    TextView txtpurchases, txtcategories, txtsetting;
     ImageView imgcart, imgmess;
 
     @Override
@@ -69,6 +69,14 @@ public class AccountDDNActivity extends AppCompatActivity {
             }
         });
 
+        txtsetting = findViewById(R.id.txt_setting);
+        txtsetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AccountDDNActivity.this, AboutUs.class);
+                startActivity(intent);
+            }
+        });
         //open cart
         imgcart = findViewById(R.id.cart);
         imgcart.setOnClickListener(new View.OnClickListener() {
