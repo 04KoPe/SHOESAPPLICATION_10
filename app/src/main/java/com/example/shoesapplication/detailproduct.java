@@ -136,10 +136,12 @@ public class detailproduct extends AppCompatActivity {
                         overridePendingTransition(0, 0);
                         return true;
                     case R.id.searchNav:
-
+                        startActivity(new Intent(getApplicationContext(), search.class));
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.notificationNav:
-
+                        startActivity(new Intent(getApplicationContext(), Notifications.class));
+                        overridePendingTransition(0, 0);
                         return true;
                 }
                 return false;
@@ -154,7 +156,7 @@ public class detailproduct extends AppCompatActivity {
         spannableString.setSpan(strikethroughSpan, 0, text.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         txtgiacu.setText(spannableString);
 
-        //open pay
+        //open cart
         btnaddtocart=findViewById(R.id.btn_addtocart);
         btnaddtocart.setOnClickListener(new View.OnClickListener() {
             @Override

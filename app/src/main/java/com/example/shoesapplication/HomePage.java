@@ -65,10 +65,12 @@ public class HomePage extends AppCompatActivity {
 
                         return true;
                     case R.id.searchNav:
-
+                        startActivity(new Intent(getApplicationContext(), search.class));
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.notificationNav:
-
+                        startActivity(new Intent(getApplicationContext(), Notifications.class));
+                        overridePendingTransition(0, 0);
                         return true;
                 }
                 return false;

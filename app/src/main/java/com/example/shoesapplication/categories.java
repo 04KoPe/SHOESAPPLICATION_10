@@ -51,7 +51,7 @@ public class categories extends AppCompatActivity {
         imgmess.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(categories.this, CartActivity.class);
+                Intent intent = new Intent(categories.this, Message.class);
                 startActivity(intent);
             }
         });
@@ -71,10 +71,12 @@ public class categories extends AppCompatActivity {
                         overridePendingTransition(0, 0);
                         return true;
                     case R.id.searchNav:
-
+                        startActivity(new Intent(getApplicationContext(), search.class));
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.notificationNav:
-
+                        startActivity(new Intent(getApplicationContext(), Notifications.class));
+                        overridePendingTransition(0, 0);
                         return true;
                 }
                 return false;

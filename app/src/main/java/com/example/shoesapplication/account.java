@@ -54,10 +54,12 @@ public class account extends AppCompatActivity {
                         overridePendingTransition(0, 0);
                         return true;
                     case R.id.searchNav:
-
+                        startActivity(new Intent(getApplicationContext(), search.class));
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.notificationNav:
-
+                        startActivity(new Intent(getApplicationContext(), Notifications.class));
+                        overridePendingTransition(0, 0);
                         return true;
                 }
                 return false;
@@ -78,7 +80,7 @@ public class account extends AppCompatActivity {
         imgmess.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(account.this, LogInActivity.class);
+                Intent intent = new Intent(account.this, Message.class);
                 startActivity(intent);
             }
         });

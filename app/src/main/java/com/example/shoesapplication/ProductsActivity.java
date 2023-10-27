@@ -42,10 +42,12 @@ public class ProductsActivity extends AppCompatActivity {
                         overridePendingTransition(0, 0);
                         return true;
                     case R.id.searchNav:
-
+                        startActivity(new Intent(getApplicationContext(), search.class));
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.notificationNav:
-
+                        startActivity(new Intent(getApplicationContext(), Notifications.class));
+                        overridePendingTransition(0, 0);
                         return true;
                 }
                 return false;
@@ -101,7 +103,7 @@ public class ProductsActivity extends AppCompatActivity {
         imgmess.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ProductsActivity.this, CartActivity.class);
+                Intent intent = new Intent(ProductsActivity.this, Message.class);
                 startActivity(intent);
             }
         });

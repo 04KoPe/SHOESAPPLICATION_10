@@ -17,7 +17,11 @@
         <activity android:name=".SignUpActivity"/>
         <activity android:name=".categories"/>
         <activity android:name=".account"/>
+        <activity android:name=".Purchase"/>
         <activity android:name=".ProductsActivity"/>
+        <activity android:name=".Message"/>
+        <activity android:name=".search"/>
+        <activity android:name=".Notifications"/>
         <activity android:name=".tenshoes">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

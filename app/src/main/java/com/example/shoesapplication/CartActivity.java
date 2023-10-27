@@ -39,7 +39,7 @@ public class CartActivity extends AppCompatActivity {
         imgmess.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(CartActivity.this, SignUpActivity.class);
+                Intent intent = new Intent(CartActivity.this, Message.class);
                 startActivity(intent);
             }
         });

@@ -32,16 +32,19 @@ public class AccountDDNActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.accountNav:
+
                         return true;
                     case R.id.homeNav:
                         startActivity(new Intent(getApplicationContext(), HomePage.class));
                         overridePendingTransition(0, 0);
                         return true;
                     case R.id.searchNav:
-
+                        startActivity(new Intent(getApplicationContext(), search.class));
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.notificationNav:
-
+                        startActivity(new Intent(getApplicationContext(), Notifications.class));
+                        overridePendingTransition(0, 0);
                         return true;
                 }
                 return false;
@@ -52,7 +55,7 @@ public class AccountDDNActivity extends AppCompatActivity {
         txtpurchases.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AccountDDNActivity.this, LogInActivity.class);
+                Intent intent = new Intent(AccountDDNActivity.this, Purchase.class);
                 startActivity(intent);
             }
         });
@@ -81,7 +84,7 @@ public class AccountDDNActivity extends AppCompatActivity {
         imgmess.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AccountDDNActivity.this, CartActivity.class);
+                Intent intent = new Intent(AccountDDNActivity.this, Message.class);
                 startActivity(intent);
             }
         });
