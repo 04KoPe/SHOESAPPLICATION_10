@@ -1,66 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     tools:context=".Message">
 
     <LinearLayout
 
-        android:background="#F6F3F3"
-        android:orientation="horizontal"
         android:id="@+id/top"
         android:layout_width="match_parent"
-        android:layout_height="120dp">
+        android:layout_height="150dp"
+        android:background="#F6F3F3"
+        android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="80dp"
             android:layout_height="120dp"
             android:gravity="center">
+
             <ImageView
-                android:layout_marginLeft="10dp"
                 android:layout_width="50dp"
                 android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
                 android:src="@drawable/back">
 
             </ImageView>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="230dp"
             android:layout_height="120dp"
             android:gravity="center"
             android:orientation="vertical">
+
             <TextView
                 android:id="@+id/message_2"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:text="Message"
-                android:textSize="35sp"
                 android:gravity="bottom"
                 android:paddingLeft="42dp"
-                android:textStyle="bold">
-            </TextView>
+                android:text="Message"
+                android:textSize="35sp"
+                android:textStyle="bold"></TextView>
+
             <TextView
                 android:id="@+id/message_1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Replying within a second"
-                android:textSize="19sp"
                 android:gravity="center"
-                >
-            </TextView>
+                android:text="Replying within a second"
+                android:textSize="19sp"></TextView>
 
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="80dp"
             android:layout_height="120dp"
             android:gravity="center">
+
             <ImageView
-                android:layout_marginLeft="10dp"
                 android:layout_width="50dp"
                 android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
                 android:src="@drawable/menu">
 
             </ImageView>
@@ -68,101 +71,94 @@
     </LinearLayout>
 
 
-
     <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="150dp"
         android:id="@+id/btn_yesterday"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/top"
+        android:layout_marginLeft="125dp"
+        android:layout_marginTop="1dp"
         android:background="@drawable/nen_btn"
         android:gravity="center"
-        android:layout_below="@+id/top"
-        android:layout_marginTop="1dp"
-        android:text="Yesterday"
-        android:layout_marginLeft="125dp">
-    </androidx.appcompat.widget.AppCompatButton>
+        android:text="Yesterday"></androidx.appcompat.widget.AppCompatButton>
 
 
     <LinearLayout
-        android:layout_below="@+id/top"
         android:layout_width="match_parent"
         android:layout_height="160dp"
-        android:orientation="horizontal"
+        android:layout_below="@+id/top"
+        android:layout_marginTop="53dp"
         android:background="#FBF6F6"
-        android:layout_marginTop="53dp">
+        android:orientation="horizontal">
+
         <LinearLayout
             android:layout_width="120dp"
             android:layout_height="match_parent"
             android:gravity="center">
+
             <ImageView
                 android:layout_width="120dp"
                 android:layout_height="100dp"
-                android:src="@drawable/nike_1"
-                >
-            </ImageView>
+                android:src="@drawable/nike_1"></ImageView>
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center"
             android:background="#FBF6F6"
-            >
+            android:gravity="center"
+            android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
-                >
+                android:layout_height="70dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
                     android:gravity="center"
-                    android:text="Oder ID : 230758UMAHSI78B"
-                    android:textSize="17dp"
                     android:paddingLeft="10dp"
-                    android:layout_marginTop="10dp">
-                </TextView>F
+                    android:text="Oder ID : 230758UMAHSI78B"
+                    android:textSize="17dp"></TextView>
 
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                >
+                android:layout_height="50dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
+                    android:layout_marginLeft="-90dp"
                     android:gravity="center"
+                    android:paddingLeft="10dp"
                     android:text="Total:đ 850.000"
                     android:textSize="17dp"
-                    android:paddingLeft="10dp"
-                    android:layout_marginLeft="-90dp"
 
-                    >
-                </TextView>
-
+                    ></TextView>
 
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                >
+                android:layout_height="50dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:gravity="center"
-                    android:text="Pakcing"
-                    android:textSize="17dp"
-                    android:textColor="#E10C0C"
-                    android:paddingLeft="10dp"
                     android:layout_marginLeft="-140dp"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:text="Pakcing"
+                    android:textColor="#E10C0C"
+                    android:textSize="17dp"
 
-                    >
-                </TextView>
-
+                    ></TextView>
 
 
             </LinearLayout>
@@ -171,19 +167,22 @@
         </LinearLayout>
 
     </LinearLayout>
+
     <LinearLayout
+        android:id="@+id/chat"
         android:layout_width="280dp"
         android:layout_height="100dp"
         android:layout_marginTop="370dp"
-        android:orientation="vertical"
         android:background="#FBF6F6"
+        android:orientation="vertical"
 
         >
+
         <LinearLayout
-            android:layout_marginLeft="20dp"
+            android:id="@+id/lin1"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:id="@+id/lin1">
+            android:layout_marginLeft="20dp">
 
             <TextView
                 android:layout_width="match_parent"
@@ -193,21 +192,62 @@
             </TextView>
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="280dp"
             android:layout_height="40dp">
+
             <TextView
                 android:layout_width="50dp"
                 android:layout_height="40dp"
-                android:text="09:00"
                 android:layout_marginLeft="230dp"
                 android:gravity="bottom"
-                ></TextView>
+                android:text="09:00"></TextView>
 
         </LinearLayout>
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_marginTop="640dp"
+        android:background="#F6F3F3"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:layout_width="55dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/baseline_loupe_24">
+
+            </ImageView>
+
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/message"
+            android:drawableEnd="@drawable/baseline_face_5_24"
+
+            android:paddingHorizontal="20dp"
+            android:text="Typing a message..."
+            android:textAllCaps="false"
+            android:textColor="#AEA7A7"
+            android:textSize="18dp">
+
+        </androidx.appcompat.widget.AppCompatButton>
+
+
+    </LinearLayout>
 
 
 </RelativeLayout>

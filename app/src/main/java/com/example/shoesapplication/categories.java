@@ -57,7 +57,6 @@ public class categories extends AppCompatActivity {
         });
 
         btnavview = findViewById(R.id.naviBtn);
-        btnavview.setSelectedItemId(R.id.accountNav);
 
         //dieu huong den cac trang
         btnavview.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -65,6 +64,8 @@ public class categories extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.accountNav:
+                        startActivity(new Intent(getApplicationContext(), AccountDDNActivity.class));
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.homeNav:
                         startActivity(new Intent(getApplicationContext(), HomePage.class));

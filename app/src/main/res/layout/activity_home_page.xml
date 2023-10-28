@@ -187,7 +187,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#F6F3F3"
-            app:menu="@menu/menu_navigation"
+            app:menu="@menu/bottom_nav_menu"
             app:itemIconTint="@color/color_navigation"
             app:itemTextColor="@color/color_navigation"
             app:labelVisibilityMode="labeled"

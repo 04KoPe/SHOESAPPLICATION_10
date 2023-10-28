@@ -62,7 +62,6 @@ public class HomePage extends AppCompatActivity {
                         overridePendingTransition(0, 0);
                         return true;
                     case R.id.homeNav:
-
                         return true;
                     case R.id.searchNav:
                         startActivity(new Intent(getApplicationContext(), search.class));
