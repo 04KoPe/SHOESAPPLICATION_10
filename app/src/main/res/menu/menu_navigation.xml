@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/homeNav" android:title="Homepage" android:icon="@drawable/home_1_svgrepo_com"></item>
+    <item android:id="@+id/accountNav" android:title="Account" android:icon="@drawable/account_svgrepo_com"></item>
+    <item android:id="@+id/searchNav" android:title="Search" android:icon="@drawable/search_svgrepo_com"></item>
+    <item android:id="@+id/notiNav" android:title="Notifications" android:icon="@drawable/notification_13_svgrepo_com"></item>
+</menu>

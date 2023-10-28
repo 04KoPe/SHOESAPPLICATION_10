@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Checkout">
+
+
+
+
+    <RelativeLayout
+        android:id="@+id/itemLayout"
+        android:layout_weight="0.9"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+
+        <ImageView
+            android:id="@+id/headerColor"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="#F6F3F3">
+
+        </ImageView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/paypalBanner"
+            android:layout_width="370dp"
+            android:layout_height="90dp"
+            android:layout_below="@id/headerColor"
+            android:layout_centerHorizontal="true"
+            android:background="#ABD7FF"
+            android:layout_marginTop="-50dp"
+            android:text="Buy with Paypal. It's fast and simple."
+            android:drawableStart="@drawable/paypal_logo"
+            android:drawablePadding="2dp"
+            android:paddingLeft="18dp"
+            android:textSize="12.5sp">
+
+        </androidx.appcompat.widget.AppCompatButton>
+
+        <TextView
+            android:id="@+id/checkoutText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Check Out"
+            android:textColor="@color/black"
+            android:layout_below="@+id/headerColor"
+            android:textSize="30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-120dp">
+
+        </TextView>
+
+        <ListView
+            android:id="@+id/itemInfo"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_below="@id/paypalBanner"
+            android:layout_marginTop="9dp">
+
+        </ListView>
+
+        <ImageView
+            android:id="@+id/gobackIconHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/arrow_left"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="20dp">
+
+        </ImageView>
+
+
+     </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/messageLayout"
+        android:layout_weight="0.2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/layout_border">
+
+        <TextView
+            android:id="@+id/messageText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Message"
+            android:layout_marginLeft="10dp"
+            android:textSize="20sp"
+            android:layout_centerVertical="true">
+
+        </TextView>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/arrow_icon"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp">
+
+        </ImageView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/deliveryLayout"
+        android:layout_weight="0.2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/layout_border">
+
+        <TextView
+            android:id="@+id/deliveryText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ship to: "
+            android:layout_marginLeft="10dp"
+            android:textSize="20sp"
+            android:layout_centerVertical="true">
+
+        </TextView>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/arrow_icon"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp">
+
+        </ImageView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/payLayout"
+        android:layout_weight="0.2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/layout_border">
+
+        <TextView
+            android:id="@+id/payText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pay with:"
+            android:layout_marginLeft="10dp"
+            android:textSize="20sp"
+            android:layout_centerVertical="true">
+
+        </TextView>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/arrow_icon"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp">
+
+        </ImageView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/totalLayout"
+        android:layout_weight="0.31"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/layout_border"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/subtotalText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Subtotal:"
+            android:layout_marginLeft="10dp"
+            android:textSize="20sp"
+            >
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/shippingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Shipping:"
+            android:layout_below="@id/subtotalText"
+            android:layout_marginLeft="10dp"
+            android:textSize="20sp"
+            android:layout_centerVertical="true">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/orderTotalText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Order Total:"
+            android:layout_below="@id/shippingText"
+            android:layout_marginLeft="10dp"
+            android:textSize="20sp"
+            >
+
+        </TextView>
+
+
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/footerLayout"
+        android:layout_weight="0.3"
+        android:layout_width=   "match_parent"
+        android:layout_height="0dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/logInBtn"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/edit_round_abd7ff"
+            android:text="Confirm and Pay"
+            android:textSize="20sp"
+            >
+
+        </androidx.appcompat.widget.AppCompatButton>
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

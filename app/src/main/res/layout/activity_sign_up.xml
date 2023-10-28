@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parentLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SignUpActivity">
+
+    <RelativeLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5">
+
+        <TextView
+            android:id="@+id/signUpText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/SignUpText2"
+            android:textSize="40sp"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Fill"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/signUpText"
+            android:maxLines="2">
+
+        </TextView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/bodyLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5">
+
+        <EditText
+
+            android:id="@+id/usernameEdit"
+            android:layout_width="350dp"
+            android:layout_height="40dp"
+            android:drawablePadding="5dp"
+            android:paddingLeft="10dp"
+            android:layout_centerHorizontal="true"
+            android:maxLines="1"
+            android:drawableRight="@drawable/baseline_lock_24"
+            android:hint="Username"
+            android:textSize="15sp"
+            android:background="@drawable/edit_round"
+            android:layout_marginTop="30dp"
+            android:drawableStart="@drawable/baseline_email_24">
+
+        </EditText>
+
+        <EditText
+            android:id="@+id/passwordEdit"
+            android:layout_width="350dp"
+            android:layout_height="40dp"
+            android:drawablePadding="5dp"
+            android:paddingLeft="10dp"
+            android:drawableStart="@drawable/baseline_lock_24"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/usernameEdit"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/edit_round"
+            android:inputType="textPassword"
+            android:textSize="15sp"
+            android:hint="Password"
+            >
+
+        </EditText>
+
+
+        <EditText
+            android:id="@+id/rePasswordEdit"
+            android:layout_width="350dp"
+            android:layout_height="40dp"
+            android:drawablePadding="5dp"
+            android:paddingLeft="10dp"
+            android:drawableStart="@drawable/baseline_lock_24"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/passwordEdit"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/edit_round"
+            android:inputType="textPassword"
+            android:textSize="15sp"
+            android:hint="Confirm password"
+            >
+
+        </EditText>
+
+        <CheckBox
+            android:id="@+id/checkboxAgreement"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/rePasswordEdit"
+            android:layout_below="@id/signInBtn"
+            android:layout_marginTop="7dp">
+
+        </CheckBox>
+
+        <TextView
+            android:id="@+id/agreeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/signInBtn"
+            android:layout_alignLeft="@id/rePasswordEdit"
+            android:layout_marginTop="17dp"
+            android:text="@string/agree"
+            android:layout_marginLeft="30dp"
+            android:textSize="19sp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/conditionsandterms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/signInBtn"
+            android:layout_marginTop="17dp"
+            android:layout_marginLeft="155dp"
+            android:textColor="#AA5733"
+            android:text="@string/confirmAgreement"
+            android:textSize="19sp">
+
+        </TextView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/signInBtn"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/passwordEdit"
+            android:layout_marginTop="80dp"
+            android:background="@drawable/edit_round_abd7ff"
+            android:text="Sign In"
+            android:autofillHints="Sign In"
+            android:textSize="20sp">
+
+        </androidx.appcompat.widget.AppCompatButton>
+
+
+
+        <View
+            android:id="@+id/leftView"
+            android:layout_width="100dp"
+            android:layout_height="1dp"
+            android:layout_below="@id/agreeText"
+            android:layout_marginTop="40dp"
+            android:layout_alignLeft="@id/signInBtn"
+            android:background="#917E7E">
+
+        </View>
+
+        <TextView
+            android:id="@+id/signInOption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/signInOption"
+            android:layout_marginTop="26dp"
+            android:layout_toLeftOf="@id/rightView"
+            android:layout_below="@id/agreeText"
+            android:layout_marginRight="10dp"
+            android:textSize="20sp">
+
+
+        </TextView>
+
+        <View
+            android:id="@+id/rightView"
+            android:layout_width="100dp"
+            android:layout_height="1dp"
+            android:layout_below="@id/agreeText"
+            android:layout_marginTop="40dp"
+            android:layout_alignRight="@id/signInBtn"
+            android:background="#917E7E">
+
+        </View>
+
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/footerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2.8">
+
+        <ImageView
+            android:id="@+id/fbIMG"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/fb"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp">
+
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/twitterIMG"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/twitter"
+            android:layout_alignLeft="@id/fbIMG"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="20dp"
+            >
+
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/instaIMG"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignRight="@id/fbIMG"
+            android:layout_marginRight="80dp"
+            android:background="@drawable/instagram"
+            android:layout_marginTop="20dp">
+
+        </ImageView>
+
+        <TextView
+            android:id="@+id/createAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fbIMG"
+            android:layout_marginLeft="95dp"
+            android:layout_marginTop="50dp"
+            android:text="Already have an account?">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/signupTextsuggest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fbIMG"
+            android:textColor="#804848"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="260dp"
+            android:text="@string/signInTextU">
+
+        </TextView>
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>
