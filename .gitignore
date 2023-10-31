@@ -1,6 +1,7 @@
 *.iml
 .gradle
 .idea
+.tmp
 /local.properties
 /.idea/caches
 /.idea/libraries
@@ -13,3 +14,7 @@
 /captures
 .externalNativeBuild
 .cxx
+caches
+wrapper
+native
+daemon
