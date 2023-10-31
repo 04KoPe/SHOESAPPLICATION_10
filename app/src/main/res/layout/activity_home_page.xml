@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mainLayout"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".HomePage">
 
     <RelativeLayout
@@ -19,8 +19,8 @@
             android:id="@+id/profilePic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/baseline_person_24"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="20dp"
+            android:background="@drawable/baseline_person_24">
 
         </ImageButton>
 
@@ -28,12 +28,12 @@
             android:id="@+id/welcomeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Welcome Back"
-            android:textStyle="bold"
-            android:layout_toRightOf="@+id/profilePic"
             android:layout_marginTop="35dp"
+            android:layout_toRightOf="@+id/profilePic"
+            android:text="Welcome Back"
+            android:textColor="@color/black"
             android:textSize="25sp"
-            android:textColor="@color/black">
+            android:textStyle="bold">
 
         </TextView>
 
@@ -41,11 +41,11 @@
             android:id="@+id/nameText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Vinh Thai"
-            android:textStyle="bold"
-            android:layout_toRightOf="@+id/profilePic"
             android:layout_marginTop="70dp"
-            android:textSize="20sp">>
+            android:layout_toRightOf="@+id/profilePic"
+            android:text="Vinh Thai"
+            android:textSize="20sp"
+            android:textStyle="bold">>
 
         </TextView>
 
@@ -53,12 +53,12 @@
             android:id="@+id/introText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/introText"
             android:layout_below="@+id/profilePic"
-            android:textSize="25sp"
+            android:layout_centerHorizontal="true"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_centerHorizontal="true">
+            android:text="@string/introText"
+            android:textSize="25sp">
 
         </TextView>
 
@@ -68,14 +68,14 @@
             android:layout_height="35dp"
             android:layout_below="@+id/introText"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/edit_round"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/edit_round"
+            android:drawableStart="@drawable/baseline_search_24"
             android:hint="Search anything here"
             android:paddingLeft="10dp"
-            android:textSize="15dp"
-            android:drawableStart="@drawable/baseline_search_24"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp">
+            android:textSize="15dp">
 
         </EditText>
 
@@ -84,8 +84,8 @@
             android:layout_width="370dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/searchTextBar"
-            android:layout_marginTop="6dp"
-            android:layout_centerHorizontal="true">
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="6dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -96,11 +96,11 @@
                     android:id="@+id/productsScrollable"
                     android:layout_width="140dp"
                     android:layout_height="wrap_content"
-                    android:text="Products"
+                    android:background="@drawable/edit_round"
+                    android:drawableStart="@drawable/product_svgrepo_com"
                     android:paddingLeft="20dp"
                     android:paddingRight="10dp"
-                    android:background="@drawable/edit_round"
-                    android:drawableStart="@drawable/product_svgrepo_com">
+                    android:text="Products">
 
                 </androidx.appcompat.widget.AppCompatButton>
 
@@ -121,12 +121,12 @@
                     android:id="@+id/categoriesScrollable"
                     android:layout_width="160dp"
                     android:layout_height="wrap_content"
-                    android:text="Categories"
                     android:layout_marginLeft="20dp"
                     android:background="@drawable/edit_round"
                     android:drawableStart="@drawable/category_svgrepo_com"
                     android:paddingLeft="20dp"
-                    android:paddingRight="15dp">
+                    android:paddingRight="15dp"
+                    android:text="Categories">
 
                 </androidx.appcompat.widget.AppCompatButton>
 
@@ -134,12 +134,12 @@
                     android:id="@+id/savedScrollable"
                     android:layout_width="110dp"
                     android:layout_height="wrap_content"
-                    android:text="Saved"
                     android:layout_marginLeft="20dp"
                     android:background="@drawable/edit_round"
                     android:drawableStart="@drawable/heart"
                     android:paddingLeft="20dp"
-                    android:paddingRight="15dp">
+                    android:paddingRight="15dp"
+                    android:text="Saved">
 
                 </androidx.appcompat.widget.AppCompatButton>
 
@@ -160,18 +160,172 @@
             android:id="@+id/shoesViewPager"
             android:layout_width="match_parent"
             android:layout_height="120dp"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp" />
 
         <me.relex.circleindicator.CircleIndicator
             android:id="@+id/shoesVPIndicator"
-            app:ci_drawable="@drawable/bc_indicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/shoesViewPager"
-            android:layout_centerHorizontal="true">
+            android:layout_centerHorizontal="true"
+            app:ci_drawable="@drawable/bc_indicator">
 
         </me.relex.circleindicator.CircleIndicator>
 
+        <TextView
+            android:id="@+id/popularText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/shoesVPIndicator"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Popular"
+            android:textColor="@color/black"
+            android:textSize="25sp">
+
+        </TextView>
+
+        <HorizontalScrollView
+            android:id="@+id/shoesViewHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/popularText"
+            android:layout_marginTop="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/Shoes1"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/edit_round_shoes"
+                    android:src="@drawable/download">
+
+                </ImageView>
+
+                <ImageView
+                    android:id="@+id/Shoes2"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/edit_round_shoes"
+                    android:src="@drawable/nike_shoes">
+
+                </ImageView>
+
+                <ImageView
+                    android:id="@+id/Shoes3"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginRight="5dp"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/edit_round_shoes"
+                    android:src="@drawable/nike_shoes_1">
+
+                </ImageView>
+
+                <ImageView
+                    android:id="@+id/Shoes4"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginRight="5dp"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/edit_round_shoes"
+                    android:src="@drawable/pegasus_40">
+
+                </ImageView>
+
+                <ImageView
+                    android:id="@+id/Shoes5"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/edit_round_shoes"
+                    android:src="@drawable/shoes_2">
+
+                </ImageView>
+
+            </LinearLayout>
+
+
+        </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/brandText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/shoesViewHorizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="Shop by Brand"
+            android:textColor="@color/black"
+            android:textSize="20sp">
+
+        </TextView>
+
+        <ImageView
+            android:id="@+id/adidas"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/brandText"
+            android:layout_marginLeft="38dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/adidas">
+
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/balance"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/brandText"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/adidas"
+            android:adjustViewBounds="true"
+            android:src="@drawable/altra_brand">
+
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/arreto"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/brandText"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/balance"
+            android:adjustViewBounds="true"
+            android:src="@drawable/aretto">
+
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/jordan"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/brandText"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/arreto"
+            android:adjustViewBounds="true"
+            android:src="@drawable/jordan">
+
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/titan"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/brandText"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/jordan"
+            android:adjustViewBounds="true"
+            android:src="@drawable/titan">
+
+        </ImageView>
 
     </RelativeLayout>
 
@@ -179,20 +333,18 @@
         android:id="@+id/footerLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.5"
-        >
+        android:layout_weight="0.5">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/naviBtn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#F6F3F3"
-            app:menu="@menu/bottom_nav_menu"
+            app:itemHorizontalTranslationEnabled="true"
             app:itemIconTint="@color/color_navigation"
             app:itemTextColor="@color/color_navigation"
             app:labelVisibilityMode="labeled"
-            app:itemHorizontalTranslationEnabled="true"
-            >
+            app:menu="@menu/bottom_nav_menu">
 
 
         </com.google.android.material.bottomnavigation.BottomNavigationView>
