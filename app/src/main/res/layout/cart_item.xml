@@ -60,9 +60,9 @@
             android:text="đ 999.000"
             android:textColor="@color/gray"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@id/btn_minus"
+            app:layout_constraintBottom_toTopOf="@id/btn_minus"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="@id/text_name" />
+            app:layout_constraintTop_toBottomOf="@id/text_name"/>
 
         <TextView
             android:id="@+id/sale_price"
@@ -75,9 +75,9 @@
             android:textColor="@color/black"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/btn_minus"
+            app:layout_constraintBottom_toTopOf="@id/btn_minus"
             app:layout_constraintStart_toEndOf="@+id/price"
-            app:layout_constraintTop_toTopOf="@id/text_name" />
+            app:layout_constraintTop_toBottomOf="@id/text_name"/>
 
         <ImageView
             android:id="@+id/btn_minus"
