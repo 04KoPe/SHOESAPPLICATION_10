@@ -350,6 +350,7 @@ Red’ 553560-118 Like Auth Shoes"
                     android:textStyle="bold"></androidx.appcompat.widget.AppCompatButton>
 
                 <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_odernow"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="40dp"

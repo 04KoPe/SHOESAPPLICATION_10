@@ -22,7 +22,7 @@ public class detailproduct extends AppCompatActivity {
     BottomNavigationView btnavview;
     private boolean isRed = false;
     TextView txtgiacu;
-    Button btnaddtocart;
+    Button btnaddtocart, btnoder;
     private Button button36,button37,button38,button39,button40,button41,button42;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -162,6 +162,16 @@ public class detailproduct extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(detailproduct.this, CartActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //open pay
+        btnoder=findViewById(R.id.btn_odernow);
+        btnoder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(detailproduct.this, Checkout.class);
                 startActivity(intent);
             }
         });

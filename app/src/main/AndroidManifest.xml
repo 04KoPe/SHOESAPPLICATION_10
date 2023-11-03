@@ -10,6 +10,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".AboutUs"></activity>
         <activity android:name=".detailproduct" />
+        <activity android:name=".Checkout" />
         <activity android:name=".HomePage" />
         <activity android:name=".CartActivity" />
         <activity android:name=".AccountDDNActivity" />
