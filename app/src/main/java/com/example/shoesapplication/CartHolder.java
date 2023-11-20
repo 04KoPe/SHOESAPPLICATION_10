@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class CartHolder extends RecyclerView.ViewHolder{
     TextView txtName, txtPrice, txtSalePrice;
-    ImageView imgName;
+    ImageView imgName, imgplus, imgminus;
 
     public CartHolder(@NonNull View itemView) {
         super(itemView);
@@ -17,5 +17,8 @@ public class CartHolder extends RecyclerView.ViewHolder{
         txtPrice = itemView.findViewById(R.id.price);
         txtSalePrice = itemView.findViewById(R.id.sale_price);
         imgName = itemView.findViewById(R.id.image_name);
+
+        imgminus = itemView.findViewById(R.id.btn_minus);
+        imgplus = itemView.findViewById(R.id.btn_plus);
     }
 }

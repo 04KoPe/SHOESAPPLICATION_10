@@ -37,6 +37,13 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
         holder.txtSalePrice.setText(data.get(position).saleprice);
         holder.imgName.setImageResource(data.get(position).imgID);
 
+        holder.imgplus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
         //chu gacg ngang
         String text = holder.txtPrice.getText().toString();
         SpannableString spannableString = new SpannableString(text);
@@ -44,6 +51,12 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
         spannableString.setSpan(strikethroughSpan, 0, text.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         holder.txtPrice.setText(spannableString);
     }
+
+    //btn_plus
+    public void plusNumber(List<Cart> cartList, int position) {
+
+    }
+
 
     @Override
     public int getItemCount() {

@@ -1,11 +1,22 @@
 package com.example.shoesapplication;
 
 public class Product {
-    String name;
-    int imgID;
+    String image, name;
 
-    public Product(String name, int imgID) {
+    public String getName() {
+        return name;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+
+    public void setName(String name) {
         this.name = name;
-        this.imgID = imgID;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

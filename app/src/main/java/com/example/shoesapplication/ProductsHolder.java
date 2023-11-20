@@ -13,8 +13,8 @@ public class ProductsHolder extends RecyclerView.ViewHolder {
 
     public ProductsHolder(@NonNull View itemView) {
         super(itemView);
-        txtName = itemView.findViewById(R.id.text_name);
-        imgName = itemView.findViewById(R.id.image_name);
+        txtName = itemView.findViewById(R.id.productName);
+        imgName = itemView.findViewById(R.id.productImg);
     }
 
 }

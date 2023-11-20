@@ -2,6 +2,7 @@ package com.example.shoesapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -11,15 +12,25 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.shoesapplication.listener.IProductLoadListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductsActivity extends AppCompatActivity {
+public class ProductsActivity extends AppCompatActivity implements IProductLoadListener {
     BottomNavigationView btnavview;
     RecyclerView rv;
+    DatabaseReference database;
     ImageView imgcart, imgmess;
+
+    //IProductLoadListener productLoadListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,42 +65,51 @@ public class ProductsActivity extends AppCompatActivity {
             }
         });
 
-        rv= findViewById(R.id.recyclerview_nike);
-        List<Product> nike = new ArrayList<>();
-        nike.add(new Product("Nike Air Jordan 1 Low GS ‘White Gym Red’",R.drawable.nike_1));
-        nike.add(new Product("Nike Dunk Low Athletic Department Casual Shoes",R.drawable.nike_2));
+        rv = findViewById(R.id.recyclerview_nike);
+        database = FirebaseDatabase.getInstance().getReference("Nike");
+        rv.setHasFixedSize(true);
         rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+
+        List<Product> nike = new ArrayList<>();
         ProductsAdapter adapter_nike = new ProductsAdapter(this, nike);
         rv.setAdapter(adapter_nike);
 
-        adapter_nike.setOnItemClickListener(new ProductsAdapter.OnItemClickListener() {
+        database.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onItemClick(Product product) {
-                Intent intent = new Intent(ProductsActivity.this, detailproduct.class);
-                startActivity(intent);
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot nikeSnapshot : snapshot.getChildren()) {
+                    Product product = nikeSnapshot.getValue(Product.class);
+                    nike.add(product);
+                }
+                adapter_nike.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w("Failed to read value.", error.toException());
             }
         });
 
-        rv= findViewById(R.id.recyclerview_converse);
-        List<Product> converse = new ArrayList<>();
-        converse.add(new Product("Converse Chuck Taylor All Star Construct",R.drawable.converse_1));
-        converse.add(new Product("Converse Converse Chuck 70 Patchwork Floral",R.drawable.converse_2));
-        rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        ProductsAdapter adapter_converse = new ProductsAdapter(this, converse);
-        rv.setAdapter(adapter_converse);
 
-        rv= findViewById(R.id.recyclerview_vans);
-        List<Product> vans = new ArrayList<>();
-        vans.add(new Product("Vans Classic Authentic Shoes",R.drawable.vans_1));
-        vans.add(new Product("Vans Off The Wall Shoes",R.drawable.vans_2));
-        rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        ProductsAdapter adapter_vans = new ProductsAdapter(this, vans);
-        rv.setAdapter(adapter_vans);
+//        nike.add(new Product("Nike Air Jordan 1 Low GS ‘White Gym Red’",R.drawable.nike_1));
+//        nike.add(new Product("Nike Dunk Low Athletic Department Casual Shoes",R.drawable.nike_2));
+//        rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+//        ProductsAdapter adapter_nike = new ProductsAdapter(this, nike);
+//        rv.setAdapter(adapter_nike);
+//
+//        adapter_nike.setOnItemClickListener(new ProductsAdapter.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(Product product) {
+//                Intent intent = new Intent(ProductsActivity.this, detailproduct.class);
+//                startActivity(intent);
+//            }
+//        });
+//
+//u
 
 
-
-        //open cart
-        imgcart = findViewById(R.id.cart);
+                //open cart
+                imgcart = findViewById(R.id.cart);
         imgcart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -107,5 +127,48 @@ public class ProductsActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        //firebase
+//        init();
+//        loadNikeFromFireBase();
+    }
+
+//    private void init() {
+//        productLoadListener = this;
+//    }
+
+//    private void loadNikeFromFireBase() {
+//        List<Product> nike = new ArrayList<>();
+//        FirebaseDatabase.getInstance().getReference("Nike")
+//                .addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if (snapshot.exists()) {
+//                            for (DataSnapshot productSnapshot : snapshot.getChildren()) {
+//                                Product product = productSnapshot.getValue(Product.class);
+//                                product.setKey(productSnapshot.getKey());
+//                                nike.add(product);
+//                            }
+//                            productLoadListener.onProductLoadSuccess(nike);
+//                        } else
+//                            productLoadListener.onProductLoadFailed("Can't find product");
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//                        productLoadListener.onProductLoadFailed(error.getMessage());
+//                    }
+//                });
+//    }
+
+    @Override
+    public void onProductLoadSuccess(List<Product> productList) {
+        ProductsAdapter adapter_nike = new ProductsAdapter(this, productList);
+        rv.setAdapter(adapter_nike);
+    }
+
+    @Override
+    public void onProductLoadFailed(String message) {
+
     }
 }
