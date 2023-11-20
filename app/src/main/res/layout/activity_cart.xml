@@ -65,7 +65,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    //freeship
+<!--    freeship-->
 
     <LinearLayout
         android:id="@+id/freeship"
@@ -98,7 +98,7 @@
             android:textSize="14dp" />
     </LinearLayout>
 
-    //item cart
+<!--    item cart-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_cart"
@@ -106,7 +106,8 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/footer"
         android:layout_below="@+id/freeship" />
-    //footer
+
+<!--    footer-->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/footer"

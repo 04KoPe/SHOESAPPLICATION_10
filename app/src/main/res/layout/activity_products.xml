@@ -36,7 +36,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />
 
-        //cart
+<!--        cart-->
 
         <ImageView
             android:id="@+id/cart"
@@ -48,7 +48,7 @@
             app:layout_constraintRight_toLeftOf="@id/message"
             app:layout_constraintTop_toTopOf="parent" />
 
-        //message
+<!--        message-->
 
         <ImageView
             android:id="@+id/message"
@@ -75,7 +75,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            //nike
+<!--            nike-->
 
             <RelativeLayout
                 android:id="@+id/pr_1"
@@ -102,7 +102,7 @@
                     android:layout_below="@+id/txt_nike" />
             </RelativeLayout>
 
-            //converse
+<!--            converse-->
 
             <RelativeLayout
                 android:id="@+id/pr_2"
@@ -129,7 +129,7 @@
                     android:layout_below="@+id/txt_converse" />
             </RelativeLayout>
 
-            //converse
+<!--            converse-->
 
             <RelativeLayout
                 android:id="@+id/pr_3"

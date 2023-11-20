@@ -12,7 +12,7 @@
         android:layout_height="120dp"
         android:background="@color/bgfooter">
 
-        //account icon
+<!--        account icon-->
 
         <ImageView
             android:id="@+id/img_account"
@@ -24,7 +24,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />
 
-        //name
+<!--        name-->
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -51,7 +51,7 @@
                 android:textSize="20sp" />
         </LinearLayout>
 
-        //cart
+<!--        cart-->
 
         <ImageView
             android:id="@+id/cart"
@@ -63,7 +63,7 @@
             app:layout_constraintRight_toLeftOf="@id/message"
             app:layout_constraintTop_toTopOf="parent" />
 
-        //message
+<!--        message-->
 
         <ImageView
             android:id="@+id/message"
