@@ -70,92 +70,98 @@
         android:layout_below="@+id/header"
         android:fillViewport="true">
 
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_product"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"/>
 
-<!--            nike-->
 
-            <RelativeLayout
-                android:id="@+id/pr_1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="32dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="32dp">
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical">-->
 
-                <TextView
-                    android:id="@+id/txt_nike"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:text="Nike"
-                    android:textColor="@color/black"
-                    android:textSize="30sp"
-                    android:textStyle="bold" />
+<!--&lt;!&ndash;            nike&ndash;&gt;-->
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerview_nike"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/txt_nike" />
-            </RelativeLayout>
+<!--            <RelativeLayout-->
+<!--                android:id="@+id/pr_1"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="32dp"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:layout_marginRight="32dp">-->
 
-<!--            converse-->
+<!--                <TextView-->
+<!--                    android:id="@+id/txt_nike"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:clickable="true"-->
+<!--                    android:text="Nike"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="30sp"-->
+<!--                    android:textStyle="bold" />-->
 
-            <RelativeLayout
-                android:id="@+id/pr_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="32dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="32dp">
+<!--                <androidx.recyclerview.widget.RecyclerView-->
+<!--                    android:id="@+id/recyclerview_nike"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_below="@+id/txt_nike" />-->
+<!--            </RelativeLayout>-->
 
-                <TextView
-                    android:id="@+id/txt_converse"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:text="Converse"
-                    android:textColor="@color/black"
-                    android:textSize="30sp"
-                    android:textStyle="bold" />
+<!--&lt;!&ndash;            converse&ndash;&gt;-->
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerview_converse"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/txt_converse" />
-            </RelativeLayout>
+<!--            <RelativeLayout-->
+<!--                android:id="@+id/pr_2"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="32dp"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:layout_marginRight="32dp">-->
 
-<!--            converse-->
+<!--                <TextView-->
+<!--                    android:id="@+id/txt_converse"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:clickable="true"-->
+<!--                    android:text="Converse"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="30sp"-->
+<!--                    android:textStyle="bold" />-->
 
-            <RelativeLayout
-                android:id="@+id/pr_3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="32dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="32dp">
+<!--                <androidx.recyclerview.widget.RecyclerView-->
+<!--                    android:id="@+id/recyclerview_converse"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_below="@+id/txt_converse" />-->
+<!--            </RelativeLayout>-->
 
-                <TextView
-                    android:id="@+id/txt_vans"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:text="Vans"
-                    android:textColor="@color/black"
-                    android:textSize="30sp"
-                    android:textStyle="bold" />
+<!--&lt;!&ndash;            converse&ndash;&gt;-->
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerview_vans"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/txt_vans" />
-            </RelativeLayout>
-        </LinearLayout>
+<!--            <RelativeLayout-->
+<!--                android:id="@+id/pr_3"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="32dp"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:layout_marginRight="32dp">-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/txt_vans"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:clickable="true"-->
+<!--                    android:text="Vans"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="30sp"-->
+<!--                    android:textStyle="bold" />-->
+
+<!--                <androidx.recyclerview.widget.RecyclerView-->
+<!--                    android:id="@+id/recyclerview_vans"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_below="@+id/txt_vans" />-->
+<!--            </RelativeLayout>-->
+<!--        </LinearLayout>-->
 
     </ScrollView>
 

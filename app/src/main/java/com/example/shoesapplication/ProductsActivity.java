@@ -37,45 +37,45 @@ public class ProductsActivity extends AppCompatActivity implements IProductLoadL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_products);
 
-        // Write nike shoes to the database
-        FirebaseDatabase nikeDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference nikeRef = nikeDatabase.getReference("Nike");
-
-        nikeRef.child("01").child("name").setValue("Nike Air Jordan 1 Low GS ‘White Gym Red’");
-        nikeRef.child("01").child("price").setValue("800.000");
-        nikeRef.child("01").child("image").setValue("https://www.pricerunner.com/product/1200x630/3001856768/Nike-Air-Jordan-1-Low-GS-White-Gym-Red-Black.jpg");
-
-        nikeRef.child("02").child("name").setValue("Nike Dunk Low Athletic Department Casual Shoes");
-        nikeRef.child("02").child("price").setValue("820.000");
-        nikeRef.child("02").child("image").setValue("https://cdn.flightclub.com/750/TEMPLATE/374011/1.jpg");
-
-        nikeRef.child("03").child("name").setValue("Nike Air Jordan 1 Low ‘Ice Blue’ Like Auth Shoes");
-        nikeRef.child("03").child("price").setValue("920.000");
-        nikeRef.child("03").child("image").setValue("https://shopgiayreplica.com/wp-content/uploads/2023/05/air-jordan-1-low-se-reverse-ice-blue.jpg");
-
-        // Write converse shoes to the database
-        FirebaseDatabase converseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference converseRef = converseDatabase.getReference("Converse");
-
-        converseRef.child("01").child("name").setValue("Converse Chuck Taylor All Star Construct");
-        converseRef.child("01").child("price").setValue("900.000");
-        converseRef.child("01").child("image").setValue("https://product.hstatic.net/200000265619/product/a02832c-01-web_b944845b8e7945a1851dc890140ee7af_1024x1024.jpg");
-
-        converseRef.child("02").child("name").setValue("Converse Chuck 70 Patchwork Floral");
-        converseRef.child("02").child("price").setValue("950.000");
-        converseRef.child("02").child("image").setValue("https://m.media-amazon.com/images/I/51ywaDC0F5L._AC_SY695_.jpg");
-
-        // Write vans shoes to the database
-        FirebaseDatabase vansDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference vansRef = vansDatabase.getReference("Vans");
-
-        vansRef.child("01").child("name").setValue("Vans Classic Authentic Shoes");
-        vansRef.child("01").child("price").setValue("500.000");
-        vansRef.child("01").child("image").setValue("https://bizweb.dktcdn.net/thumb/1024x1024/100/140/774/products/vans-authentic-classic-black-vn000ee3blk-1.png");
-
-        vansRef.child("02").child("name").setValue("Vans Off The Wall Shoes");
-        vansRef.child("02").child("price").setValue("900.000");
-        vansRef.child("02").child("image").setValue("https://bizweb.dktcdn.net/thumb/1024x1024/100/347/923/products/vn0a38g1vri-5.png");
+//        // Write nike shoes to the database
+//        FirebaseDatabase nikeDatabase = FirebaseDatabase.getInstance();
+//        DatabaseReference nikeRef = nikeDatabase.getReference("Nike");
+//
+//        nikeRef.child("01").child("name").setValue("Nike Air Jordan 1 Low GS ‘White Gym Red’");
+//        nikeRef.child("01").child("price").setValue("800.000");
+//        nikeRef.child("01").child("image").setValue("https://www.pricerunner.com/product/1200x630/3001856768/Nike-Air-Jordan-1-Low-GS-White-Gym-Red-Black.jpg");
+//
+//        nikeRef.child("02").child("name").setValue("Nike Dunk Low Athletic Department Casual Shoes");
+//        nikeRef.child("02").child("price").setValue("820.000");
+//        nikeRef.child("02").child("image").setValue("https://cdn.flightclub.com/750/TEMPLATE/374011/1.jpg");
+//
+//        nikeRef.child("03").child("name").setValue("Nike Air Jordan 1 Low ‘Ice Blue’ Like Auth Shoes");
+//        nikeRef.child("03").child("price").setValue("920.000");
+//        nikeRef.child("03").child("image").setValue("https://shopgiayreplica.com/wp-content/uploads/2023/05/air-jordan-1-low-se-reverse-ice-blue.jpg");
+//
+//        // Write converse shoes to the database
+//        FirebaseDatabase converseDatabase = FirebaseDatabase.getInstance();
+//        DatabaseReference converseRef = converseDatabase.getReference("Converse");
+//
+//        converseRef.child("01").child("name").setValue("Converse Chuck Taylor All Star Construct");
+//        converseRef.child("01").child("price").setValue("900.000");
+//        converseRef.child("01").child("image").setValue("https://product.hstatic.net/200000265619/product/a02832c-01-web_b944845b8e7945a1851dc890140ee7af_1024x1024.jpg");
+//
+//        converseRef.child("02").child("name").setValue("Converse Chuck 70 Patchwork Floral");
+//        converseRef.child("02").child("price").setValue("950.000");
+//        converseRef.child("02").child("image").setValue("https://m.media-amazon.com/images/I/51ywaDC0F5L._AC_SY695_.jpg");
+//
+//        // Write vans shoes to the database
+//        FirebaseDatabase vansDatabase = FirebaseDatabase.getInstance();
+//        DatabaseReference vansRef = vansDatabase.getReference("Vans");
+//
+//        vansRef.child("01").child("name").setValue("Vans Classic Authentic Shoes");
+//        vansRef.child("01").child("price").setValue("500.000");
+//        vansRef.child("01").child("image").setValue("https://bizweb.dktcdn.net/thumb/1024x1024/100/140/774/products/vans-authentic-classic-black-vn000ee3blk-1.png");
+//
+//        vansRef.child("02").child("name").setValue("Vans Off The Wall Shoes");
+//        vansRef.child("02").child("price").setValue("900.000");
+//        vansRef.child("02").child("image").setValue("https://bizweb.dktcdn.net/thumb/1024x1024/100/347/923/products/vn0a38g1vri-5.png");
 
         //////////
         btnavview = findViewById(R.id.bottomNavigation);
@@ -107,23 +107,29 @@ public class ProductsActivity extends AppCompatActivity implements IProductLoadL
         });
 
         //get nike shoes from realtime database
-        rv = findViewById(R.id.recyclerview_nike);
-        database = FirebaseDatabase.getInstance().getReference("Nike");
+        rv = findViewById(R.id.rv_product);
         rv.setHasFixedSize(true);
-        rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
-        List<Product> nike = new ArrayList<>();
-        ProductsAdapter adapter_nike = new ProductsAdapter(this, nike);
-        rv.setAdapter(adapter_nike);
+        List<ListProduct> listProducts = new ArrayList<>();
+        ListProductAdapter listProductAdapter = new ListProductAdapter(this, listProducts);
+        rv.setAdapter(listProductAdapter);
 
+        database = FirebaseDatabase.getInstance().getReference("Sneakers");
         database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot nikeSnapshot : snapshot.getChildren()) {
-                    Product product = nikeSnapshot.getValue(Product.class);
-                    nike.add(product);
+                for (DataSnapshot brandSnapshot : snapshot.getChildren()) {
+                    String brandName = brandSnapshot.getKey();
+                    List<Product> products = new ArrayList<>();
+                    for (DataSnapshot productSnapshot : brandSnapshot.getChildren()) {
+                        Product product = productSnapshot.getValue(Product.class);
+                        products.add(product);
+                    }
+                    ListProduct listProduct = new ListProduct(brandName, products);
+                    listProducts.add(listProduct);
                 }
-                adapter_nike.notifyDataSetChanged();
+                listProductAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -134,56 +140,56 @@ public class ProductsActivity extends AppCompatActivity implements IProductLoadL
 
 
         //get converse shoes from realtime database
-        rv = findViewById(R.id.recyclerview_converse);
-        database = FirebaseDatabase.getInstance().getReference("Converse");
-        rv.setHasFixedSize(true);
-        rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-
-        List<Product> converse = new ArrayList<>();
-        ProductsAdapter adapter_converse = new ProductsAdapter(this, converse);
-        rv.setAdapter(adapter_converse);
-
-        database.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot converseSnapshot : snapshot.getChildren()) {
-                    Product product = converseSnapshot.getValue(Product.class);
-                    converse.add(product);
-                }
-                adapter_converse.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.w("Failed to read value.", error.toException());
-            }
-        });
-
-        //get vans shoes from realtime database
-        rv = findViewById(R.id.recyclerview_vans);
-        database = FirebaseDatabase.getInstance().getReference("Vans");
-        rv.setHasFixedSize(true);
-        rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-
-        List<Product> vans = new ArrayList<>();
-        ProductsAdapter adapter_vans = new ProductsAdapter(this, vans);
-        rv.setAdapter(adapter_vans);
-
-        database.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot vansSnapshot : snapshot.getChildren()) {
-                    Product product = vansSnapshot.getValue(Product.class);
-                    vans.add(product);
-                }
-                adapter_vans.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.w("Failed to read value.", error.toException());
-            }
-        });
+//        rv = findViewById(R.id.recyclerview_converse);
+//        database = FirebaseDatabase.getInstance().getReference("Sneakers/Converse");
+//        rv.setHasFixedSize(true);
+//        rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+//
+//        List<Product> converse = new ArrayList<>();
+//        ProductsAdapter adapter_converse = new ProductsAdapter(this, converse);
+//        rv.setAdapter(adapter_converse);
+//
+//        database.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                for (DataSnapshot converseSnapshot : snapshot.getChildren()) {
+//                    Product product = converseSnapshot.getValue(Product.class);
+//                    converse.add(product);
+//                }
+//                adapter_converse.notifyDataSetChanged();
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//                Log.w("Failed to read value.", error.toException());
+//            }
+//        });
+//
+//        //get vans shoes from realtime database
+//        rv = findViewById(R.id.recyclerview_vans);
+//        database = FirebaseDatabase.getInstance().getReference("Sneakers/Vans");
+//        rv.setHasFixedSize(true);
+//        rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+//
+//        List<Product> vans = new ArrayList<>();
+//        ProductsAdapter adapter_vans = new ProductsAdapter(this, vans);
+//        rv.setAdapter(adapter_vans);
+//
+//        database.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                for (DataSnapshot vansSnapshot : snapshot.getChildren()) {
+//                    Product product = vansSnapshot.getValue(Product.class);
+//                    vans.add(product);
+//                }
+//                adapter_vans.notifyDataSetChanged();
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//                Log.w("Failed to read value.", error.toException());
+//            }
+//        });
 
 
 //        nike.add(new Product("Nike Air Jordan 1 Low GS ‘White Gym Red’",R.drawable.nike_1));

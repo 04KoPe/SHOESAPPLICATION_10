@@ -36,17 +36,16 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsHolder> {
         Product product = productList.get(position);
         Picasso.get().load(product.getImage()).into(holder.imgName);
         holder.txtName.setText(product.getName());
-        //holder.imgName.setImageResource(data.get(position).imgID);
 
         //set click listener on the item
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if (listener != null) {
-//                    listener.onItemClick(data.get(position));
-//                }
-//            }
-//        });
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (listener != null) {
+                    listener.onItemClick(product);
+                }
+            }
+        });
     }
 
     @Override
