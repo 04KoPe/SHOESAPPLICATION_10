@@ -1,6 +1,7 @@
 package com.example.shoesapplication;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,6 +49,17 @@ public class ListProductAdapter extends RecyclerView.Adapter<ListProductHolder> 
         holder.rvShoes.setHasFixedSize(true);
         holder.rvShoes.setLayoutManager(new LinearLayoutManager(c, LinearLayoutManager.HORIZONTAL, false));
         holder.rvShoes.setAdapter(adapter);
+
+        adapter.setOnItemClickListener(new ProductsAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(Product product) {
+                // Open another activity
+                Intent intent = new Intent(c, detailproduct.class);
+                // Pass the product information to the detail activity if needed
+                //intent.putExtra("product", product);
+                c.startActivity(intent);
+            }
+        });
 
 //        DatabaseReference database = FirebaseDatabase.getInstance().getReference("Sneakers/" + listProduct.getBrandName());
 //        database.addListenerForSingleValueEvent(new ValueEventListener() {

@@ -39,7 +39,7 @@ public class ProductsActivity extends AppCompatActivity implements IProductLoadL
 
 //        // Write nike shoes to the database
 //        FirebaseDatabase nikeDatabase = FirebaseDatabase.getInstance();
-//        DatabaseReference nikeRef = nikeDatabase.getReference("Nike");
+//        DatabaseReference nikeRef = nikeDatabase.getReference("Sneakers/Nike");
 //
 //        nikeRef.child("01").child("name").setValue("Nike Air Jordan 1 Low GS ‘White Gym Red’");
 //        nikeRef.child("01").child("price").setValue("800.000");
@@ -55,7 +55,7 @@ public class ProductsActivity extends AppCompatActivity implements IProductLoadL
 //
 //        // Write converse shoes to the database
 //        FirebaseDatabase converseDatabase = FirebaseDatabase.getInstance();
-//        DatabaseReference converseRef = converseDatabase.getReference("Converse");
+//        DatabaseReference converseRef = converseDatabase.getReference("Sneakers/Converse");
 //
 //        converseRef.child("01").child("name").setValue("Converse Chuck Taylor All Star Construct");
 //        converseRef.child("01").child("price").setValue("900.000");
@@ -67,7 +67,7 @@ public class ProductsActivity extends AppCompatActivity implements IProductLoadL
 //
 //        // Write vans shoes to the database
 //        FirebaseDatabase vansDatabase = FirebaseDatabase.getInstance();
-//        DatabaseReference vansRef = vansDatabase.getReference("Vans");
+//        DatabaseReference vansRef = vansDatabase.getReference("Sneakers/Vans");
 //
 //        vansRef.child("01").child("name").setValue("Vans Classic Authentic Shoes");
 //        vansRef.child("01").child("price").setValue("500.000");
@@ -76,6 +76,9 @@ public class ProductsActivity extends AppCompatActivity implements IProductLoadL
 //        vansRef.child("02").child("name").setValue("Vans Off The Wall Shoes");
 //        vansRef.child("02").child("price").setValue("900.000");
 //        vansRef.child("02").child("image").setValue("https://bizweb.dktcdn.net/thumb/1024x1024/100/347/923/products/vn0a38g1vri-5.png");
+
+        //
+
 
         //////////
         btnavview = findViewById(R.id.bottomNavigation);
