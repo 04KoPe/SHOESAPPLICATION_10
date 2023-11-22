@@ -38,11 +38,10 @@
             android:paddingTop="5dp">
 
             <TextView
-                android:id="@+id/txt_nameShoes"
+                android:id="@+id/txt_shoesName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nike Air Jordan 1 Low GS ‘White Gym
-Red’ 553560-118 Like Auth Shoes"
+                android:text="Nike Air Jordan 1 Low GS ‘White Gym Red’ 553560-118 Like Auth Shoes"
                 android:textColor="@color/black"
                 android:textSize="20dp"
                 android:textStyle="bold"></TextView>
@@ -92,7 +91,7 @@ Red’ 553560-118 Like Auth Shoes"
                     android:id="@+id/status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Status : In lock"
+                    android:text="Status : In stock"
                     android:textColor="@color/black"
                     android:textSize="15sp"
                     android:textStyle="bold"></TextView>
@@ -307,8 +306,8 @@ Red’ 553560-118 Like Auth Shoes"
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:orientation="horizontal">
 
@@ -318,17 +317,53 @@ Red’ 553560-118 Like Auth Shoes"
                     android:text="Select quantity"
                     android:textColor="@color/black"
                     android:textSize="20sp"
-                    android:textStyle="bold"></TextView>
+                    android:textStyle="bold"
+                    android:layout_gravity="center"/>
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:background="@drawable/size"
-                    android:drawableStart="@drawable/baseline_horizontal_rule_24"
-                    android:drawableEnd="@drawable/baseline_add_24"
+                <ImageView
+                    android:id="@+id/btn_minus"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_below="@id/price"
+                    android:background="@drawable/imgborder"
+                    android:clickable="true"
+                    android:padding="10dp"
+                    android:src="@drawable/minus"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:id="@+id/number_item"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_below="@id/price"
+                    android:layout_toEndOf="@id/btn_minus"
+                    android:background="@drawable/imgborder"
+                    android:gravity="center"
+                    android:padding="5dp"
                     android:text="1"
-                    android:textSize="20sp"></androidx.appcompat.widget.AppCompatButton>
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/btn_minus"
+                    android:layout_gravity="center"/>
+
+                <ImageView
+                    android:id="@+id/btn_plus"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_below="@id/price"
+                    android:layout_toEndOf="@id/number_item"
+                    android:background="@drawable/imgborder"
+                    android:clickable="true"
+                    android:padding="10dp"
+                    android:src="@drawable/plus"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/number_item"
+                    android:layout_gravity="center"/>
 
             </LinearLayout>
 

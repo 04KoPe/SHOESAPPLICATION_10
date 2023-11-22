@@ -56,7 +56,9 @@ public class ListProductAdapter extends RecyclerView.Adapter<ListProductHolder> 
                 // Open another activity
                 Intent intent = new Intent(c, detailproduct.class);
                 // Pass the product information to the detail activity if needed
-                //intent.putExtra("product", product);
+                intent.putExtra("name", product.getName());
+                intent.putExtra("image", product.getImage());
+                intent.putExtra("price", product.getPrice());
                 c.startActivity(intent);
             }
         });

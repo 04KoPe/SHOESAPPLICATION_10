@@ -14,20 +14,37 @@ import android.text.style.StrikethroughSpan;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.squareup.picasso.Picasso;
 
 public class detailproduct extends AppCompatActivity {
     BottomNavigationView btnavview;
     private boolean isRed = false;
-    TextView txtgiacu;
+    TextView txt_shoePrice, txt_shoeName;
+    ImageView img_shoe;
     Button btnaddtocart, btnoder;
-    private Button button36,button37,button38,button39,button40,button41,button42;
+    private Button button36, button37, button38, button39, button40, button41, button42;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detaiproduct);
+
+        txt_shoePrice = findViewById(R.id.txt_shoesPrice);
+        txt_shoeName = findViewById(R.id.txt_shoesName);
+        img_shoe = findViewById(R.id.img_shoes);
+
+        String shoeName =getIntent().getExtras().getString("name");
+        String shoeImage =getIntent().getExtras().getString("image");
+        String shoePrice =getIntent().getExtras().getString("price");
+
+        txt_shoeName.setText(shoeName);
+        txt_shoePrice.setText(shoePrice);
+        Picasso.get().load(shoeImage).into(img_shoe);
+
         button36 = findViewById(R.id.btn36);
         button37 = findViewById(R.id.btn37);
         button38 = findViewById(R.id.btn38);
@@ -157,7 +174,7 @@ public class detailproduct extends AppCompatActivity {
         txtgiacu.setText(spannableString);
 
         //open cart
-        btnaddtocart=findViewById(R.id.btn_addtocart);
+        btnaddtocart = findViewById(R.id.btn_addtocart);
         btnaddtocart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -167,7 +184,7 @@ public class detailproduct extends AppCompatActivity {
         });
 
         //open pay
-        btnoder=findViewById(R.id.btn_odernow);
+        btnoder = findViewById(R.id.btn_odernow);
         btnoder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
