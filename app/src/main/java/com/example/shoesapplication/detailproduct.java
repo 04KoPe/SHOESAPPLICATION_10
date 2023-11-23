@@ -23,10 +23,12 @@ import com.squareup.picasso.Picasso;
 public class detailproduct extends AppCompatActivity {
     BottomNavigationView btnavview;
     private boolean isRed = false;
-    TextView txt_shoePrice, txt_shoeName;
+    TextView txt_shoePrice, txt_shoeName, txtnumOrder;
     ImageView img_shoe;
     Button btnaddtocart, btnoder;
+    ImageView btnminus, btnplus;
     private Button button36, button37, button38, button39, button40, button41, button42;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,13 +39,38 @@ public class detailproduct extends AppCompatActivity {
         txt_shoeName = findViewById(R.id.txt_shoesName);
         img_shoe = findViewById(R.id.img_shoes);
 
-        String shoeName =getIntent().getExtras().getString("name");
-        String shoeImage =getIntent().getExtras().getString("image");
-        String shoePrice =getIntent().getExtras().getString("price");
+        String shoeName = getIntent().getExtras().getString("name");
+        String shoeImage = getIntent().getExtras().getString("image");
+        String shoePrice = getIntent().getExtras().getString("price");
 
         txt_shoeName.setText(shoeName);
-        txt_shoePrice.setText(shoePrice);
+        txt_shoePrice.setText("đ " + shoePrice);
         Picasso.get().load(shoeImage).into(img_shoe);
+
+        //button minus, button plus
+        txtnumOrder = findViewById(R.id.txt_numberOrder);
+        btnminus = findViewById(R.id.btn_productMinus);
+        btnminus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int number = Integer.parseInt(txtnumOrder.getText().toString());
+                if (number > 1) {
+                    number = number - 1;
+                }
+                txtnumOrder.setText(String.valueOf(number));
+            }
+        });
+
+        btnplus = findViewById(R.id.btn_productPlus);
+        btnplus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int number = Integer.parseInt(txtnumOrder.getText().toString());
+                number = number + 1;
+                txtnumOrder.setText(String.valueOf(number));
+            }
+        });
+
 
         button36 = findViewById(R.id.btn36);
         button37 = findViewById(R.id.btn37);

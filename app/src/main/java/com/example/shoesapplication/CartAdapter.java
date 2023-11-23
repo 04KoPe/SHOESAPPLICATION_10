@@ -35,7 +35,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
         holder.txtName.setText(data.get(position).name);
         holder.txtPrice.setText(data.get(position).price);
         holder.txtSalePrice.setText(data.get(position).saleprice);
-        holder.imgName.setImageResource(data.get(position).imgID);
+        //holder.imgName.setImageResource(data.get(position).image);
 
         holder.imgplus.setOnClickListener(new View.OnClickListener() {
             @Override
