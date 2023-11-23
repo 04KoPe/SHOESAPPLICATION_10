@@ -127,6 +127,7 @@ public class ProductsActivity extends AppCompatActivity implements IProductLoadL
                     List<Product> products = new ArrayList<>();
                     for (DataSnapshot productSnapshot : brandSnapshot.getChildren()) {
                         Product product = productSnapshot.getValue(Product.class);
+                        product.setKey(productSnapshot.getKey());
                         products.add(product);
                     }
                     ListProduct listProduct = new ListProduct(brandName, products);

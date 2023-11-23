@@ -59,6 +59,7 @@ public class ListProductAdapter extends RecyclerView.Adapter<ListProductHolder> 
                 intent.putExtra("name", product.getName());
                 intent.putExtra("image", product.getImage());
                 intent.putExtra("price", product.getPrice());
+                intent.putExtra("id", product.getKey());
                 c.startActivity(intent);
             }
         });

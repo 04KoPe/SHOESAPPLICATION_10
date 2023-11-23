@@ -5,14 +5,6 @@ public class Cart {
     int quantity;
     double totalPrice;
 
-    public Cart(String name, String price, String saleprice, String image, int quantity, double totalPrice) {
-        this.name = name;
-        this.price = price;
-        this.saleprice = saleprice;
-        this.image = image;
-        this.quantity = quantity;
-        this.totalPrice = totalPrice;
-    }
 
     public String getName() {
         return name;

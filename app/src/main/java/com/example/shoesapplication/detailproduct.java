@@ -11,19 +11,26 @@ import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.StrikethroughSpan;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 public class detailproduct extends AppCompatActivity {
     BottomNavigationView btnavview;
     private boolean isRed = false;
-    TextView txt_shoePrice, txt_shoeName, txtnumOrder;
+    TextView txt_shoePrice, txt_shoeName, txtnumOrder, txt_shoeID;
     ImageView img_shoe;
     Button btnaddtocart, btnoder;
     ImageView btnminus, btnplus;
@@ -37,14 +44,17 @@ public class detailproduct extends AppCompatActivity {
 
         txt_shoePrice = findViewById(R.id.txt_shoesPrice);
         txt_shoeName = findViewById(R.id.txt_shoesName);
+        txt_shoeID = findViewById(R.id.txt_prID);
         img_shoe = findViewById(R.id.img_shoes);
 
         String shoeName = getIntent().getExtras().getString("name");
         String shoeImage = getIntent().getExtras().getString("image");
         String shoePrice = getIntent().getExtras().getString("price");
+        String shoeID = getIntent().getExtras().getString("id");
 
         txt_shoeName.setText(shoeName);
         txt_shoePrice.setText("đ " + shoePrice);
+        txt_shoeID.setText(shoeID);
         Picasso.get().load(shoeImage).into(img_shoe);
 
         //button minus, button plus
@@ -200,16 +210,6 @@ public class detailproduct extends AppCompatActivity {
         spannableString.setSpan(strikethroughSpan, 0, text.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         txtgiacu.setText(spannableString);
 
-        //open cart
-        btnaddtocart = findViewById(R.id.btn_addtocart);
-        btnaddtocart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(detailproduct.this, CartActivity.class);
-                startActivity(intent);
-            }
-        });
-
         //open pay
         btnoder = findViewById(R.id.btn_odernow);
         btnoder.setOnClickListener(new View.OnClickListener() {
@@ -217,6 +217,55 @@ public class detailproduct extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(detailproduct.this, Checkout.class);
                 startActivity(intent);
+            }
+        });
+        //add to cart
+        btnaddtocart = findViewById(R.id.btn_addtocart);
+        btnaddtocart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addToCart();
+            }
+        });
+
+        FirebaseDatabase cartDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference cartRef = cartDatabase.getReference("Cart");
+    }
+
+
+    private void addToCart() {
+        String cartID = txt_shoeID.getText().toString();
+        DatabaseReference database = FirebaseDatabase.getInstance().getReference("Cart");
+        database.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int quantity = Integer.parseInt(txtnumOrder.getText().toString());
+                if (snapshot.hasChild(cartID)) // Check if the cart item exists
+                {
+                    Cart existingItem = snapshot.child(cartID).getValue(Cart.class);
+                    if (existingItem != null) {
+                        int newqtt = existingItem.getQuantity() + quantity;
+                        existingItem.setQuantity(newqtt);
+                        database.child(cartID).setValue(existingItem);
+                    }
+                } else {
+                    String shoeName = getIntent().getExtras().getString("name");
+                    String shoeImage = getIntent().getExtras().getString("image");
+                    String shoePrice = getIntent().getExtras().getString("price");
+                    String shoeID = getIntent().getExtras().getString("id");
+                    Cart newCartItem = new Cart();
+                    newCartItem.setName(shoeName);
+                    newCartItem.setImage(shoeImage);
+                    newCartItem.setSaleprice(shoePrice);
+                    newCartItem.setQuantity(quantity);
+                    newCartItem.setTotalPrice(Double.parseDouble(shoePrice) * quantity);
+                    database.child(cartID).setValue(newCartItem);
+                }
+                Toast.makeText(detailproduct.this, "Đã thêm vào giỏ hàng", Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w("Failed to read value.", error.toException());
             }
         });
     }
