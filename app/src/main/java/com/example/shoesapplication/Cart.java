@@ -1,10 +1,9 @@
 package com.example.shoesapplication;
 
 public class Cart {
-    String name, price, saleprice, image;
+    String name, price, oldPrice, image;
     int quantity;
-    double totalPrice;
-
+    float totalPrice;
 
     public String getName() {
         return name;
@@ -14,8 +13,8 @@ public class Cart {
         return price;
     }
 
-    public String getSaleprice() {
-        return saleprice;
+    public String getOldPrice() {
+        return oldPrice;
     }
 
     public String getImage() {
@@ -26,7 +25,7 @@ public class Cart {
         return quantity;
     }
 
-    public double getTotalPrice() {
+    public float getTotalPrice() {
         return totalPrice;
     }
 
@@ -38,8 +37,8 @@ public class Cart {
         this.price = price;
     }
 
-    public void setSaleprice(String saleprice) {
-        this.saleprice = saleprice;
+    public void setOldPrice(String oldPrice) {
+        this.oldPrice = oldPrice;
     }
 
     public void setImage(String image) {
@@ -50,7 +49,7 @@ public class Cart {
         this.quantity = quantity;
     }
 
-    public void setTotalPrice(double totalPrice) {
+    public void setTotalPrice(float totalPrice) {
         this.totalPrice = totalPrice;
     }
 }

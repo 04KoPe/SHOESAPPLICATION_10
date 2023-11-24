@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/bottom_border"
     android:orientation="horizontal"
@@ -9,7 +9,7 @@
     android:paddingBottom="15dp">
 
     <CheckBox
-        android:id="@+id/checkbox"
+        android:id="@+id/txt_checkItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center" />
@@ -20,7 +20,7 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/image_name"
+            android:id="@+id/img_cartItem"
             android:layout_width="110dp"
             android:layout_height="110dp"
             android:background="@drawable/imgborder"
@@ -28,7 +28,7 @@
             android:src="@drawable/nike_1" />
 
         <ImageView
-            android:id="@+id/delete"
+            android:id="@+id/img_deleteCartItem"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_gravity="center"
@@ -39,10 +39,11 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="140dp"
-        android:layout_marginLeft="10dp">
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
 
         <TextView
-            android:id="@+id/text_name"
+            android:id="@+id/txt_cartItemName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nike Air Jordan 1 Low GS ‘White Gym Red’"
@@ -53,37 +54,37 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/price"
+            android:id="@+id/txt_oldPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/text_name"
+            android:layout_below="@+id/txt_cartItemName"
             android:text="đ 999.000"
             android:textColor="@color/gray"
             android:textSize="14sp"
             app:layout_constraintBottom_toTopOf="@id/btn_minus"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_name"/>
+            app:layout_constraintTop_toBottomOf="@id/txt_cartItemName"/>
 
         <TextView
-            android:id="@+id/sale_price"
+            android:id="@+id/txt_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/text_name"
+            android:layout_below="@+id/txt_cartItemName"
             android:layout_marginStart="10dp"
-            android:layout_toRightOf="@+id/price"
+            android:layout_toRightOf="@+id/txt_oldPrice"
             android:text="đ 880.000"
             android:textColor="@color/black"
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/btn_minus"
-            app:layout_constraintStart_toEndOf="@+id/price"
-            app:layout_constraintTop_toBottomOf="@id/text_name"/>
+            app:layout_constraintStart_toEndOf="@+id/txt_oldPrice"
+            app:layout_constraintTop_toBottomOf="@id/txt_cartItemName"/>
 
         <ImageView
             android:id="@+id/btn_minus"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_below="@id/price"
+            android:layout_below="@id/txt_oldPrice"
             android:background="@drawable/imgborder"
             android:clickable="true"
             android:padding="10dp"
@@ -92,10 +93,10 @@
             app:layout_constraintLeft_toLeftOf="parent" />
 
         <TextView
-            android:id="@+id/number_item"
+            android:id="@+id/txt_itemAmount"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_below="@id/price"
+            android:layout_below="@id/txt_oldPrice"
             android:layout_toEndOf="@id/btn_minus"
             android:background="@drawable/imgborder"
             android:gravity="center"
@@ -111,14 +112,14 @@
             android:id="@+id/btn_plus"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_below="@id/price"
-            android:layout_toEndOf="@id/number_item"
+            android:layout_below="@id/txt_oldPrice"
+            android:layout_toEndOf="@id/txt_itemAmount"
             android:background="@drawable/imgborder"
             android:clickable="true"
             android:padding="10dp"
             android:src="@drawable/plus"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/number_item" />
+            app:layout_constraintLeft_toRightOf="@id/txt_itemAmount" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

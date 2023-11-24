@@ -11,16 +11,18 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
 
     Context c;
-    List<Cart> data;
+    List<Cart> cartList;
 
-    public CartAdapter(Context c, List<Cart> data) {
+    public CartAdapter(Context c, List<Cart> cartList) {
         this.c = c;
-        this.data = data;
+        this.cartList = cartList;
     }
 
     @NonNull
@@ -32,10 +34,12 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull CartHolder holder, int position) {
-        holder.txtName.setText(data.get(position).name);
-        holder.txtPrice.setText(data.get(position).price);
-        holder.txtSalePrice.setText(data.get(position).saleprice);
-        //holder.imgName.setImageResource(data.get(position).image);
+        Cart cart = cartList.get(position);
+        holder.txt_cartName.setText(cart.getName());
+        holder.txtPrice.setText(cart.getPrice());
+        holder.txtoldPrice.setText(cart.getOldPrice());
+        holder.txtcartAmount.setText(String.valueOf(cart.getQuantity()));
+        Picasso.get().load(cart.getImage()).into(holder.img_cartItem);
 
         holder.imgplus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,11 +49,11 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
         });
 
         //chu gacg ngang
-        String text = holder.txtPrice.getText().toString();
+        String text = holder.txtoldPrice.getText().toString();
         SpannableString spannableString = new SpannableString(text);
         StrikethroughSpan strikethroughSpan = new StrikethroughSpan();
         spannableString.setSpan(strikethroughSpan, 0, text.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        holder.txtPrice.setText(spannableString);
+        holder.txtoldPrice.setText(spannableString);
     }
 
     //btn_plus
@@ -60,6 +64,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
 
     @Override
     public int getItemCount() {
-        return data.size();
+        return cartList.size();
     }
 }

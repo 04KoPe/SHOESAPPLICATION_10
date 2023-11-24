@@ -30,7 +30,7 @@ import com.squareup.picasso.Picasso;
 public class detailproduct extends AppCompatActivity {
     BottomNavigationView btnavview;
     private boolean isRed = false;
-    TextView txt_shoePrice, txt_shoeName, txtnumOrder, txt_shoeID;
+    TextView txt_shoePrice, txt_shoeName, txtnumOrder, txt_shoeID, txt_shoeOldPrice;
     ImageView img_shoe;
     Button btnaddtocart, btnoder;
     ImageView btnminus, btnplus;
@@ -43,6 +43,7 @@ public class detailproduct extends AppCompatActivity {
         setContentView(R.layout.detaiproduct);
 
         txt_shoePrice = findViewById(R.id.txt_shoesPrice);
+        txt_shoeOldPrice = findViewById(R.id.textgiacu);
         txt_shoeName = findViewById(R.id.txt_shoesName);
         txt_shoeID = findViewById(R.id.txt_prID);
         img_shoe = findViewById(R.id.img_shoes);
@@ -50,10 +51,12 @@ public class detailproduct extends AppCompatActivity {
         String shoeName = getIntent().getExtras().getString("name");
         String shoeImage = getIntent().getExtras().getString("image");
         String shoePrice = getIntent().getExtras().getString("price");
+        String shoeOldPrice = getIntent().getExtras().getString("oldPrice");
         String shoeID = getIntent().getExtras().getString("id");
 
         txt_shoeName.setText(shoeName);
         txt_shoePrice.setText("đ " + shoePrice);
+        txt_shoeOldPrice.setText("đ " + shoeOldPrice);
         txt_shoeID.setText(shoeID);
         Picasso.get().load(shoeImage).into(img_shoe);
 
@@ -224,48 +227,40 @@ public class detailproduct extends AppCompatActivity {
         btnaddtocart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                addToCart();
-            }
-        });
-
-        FirebaseDatabase cartDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference cartRef = cartDatabase.getReference("Cart");
-    }
-
-
-    private void addToCart() {
-        String cartID = txt_shoeID.getText().toString();
-        DatabaseReference database = FirebaseDatabase.getInstance().getReference("Cart");
-        database.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                int quantity = Integer.parseInt(txtnumOrder.getText().toString());
-                if (snapshot.hasChild(cartID)) // Check if the cart item exists
-                {
-                    Cart existingItem = snapshot.child(cartID).getValue(Cart.class);
-                    if (existingItem != null) {
-                        int newqtt = existingItem.getQuantity() + quantity;
-                        existingItem.setQuantity(newqtt);
-                        database.child(cartID).setValue(existingItem);
+                String cartID = txt_shoeID.getText().toString();
+                DatabaseReference database = FirebaseDatabase.getInstance().getReference("Cart");
+                database.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        int quantity = Integer.parseInt(txtnumOrder.getText().toString());
+                        if (snapshot.hasChild(cartID)) // Check if the cart item exists
+                        {
+                            Cart existingItem = snapshot.child(cartID).getValue(Cart.class);
+                            if (existingItem != null) {
+                                int newqtt = existingItem.getQuantity() + quantity;
+                                float newttPrice = Float.parseFloat(shoePrice) * newqtt;
+                                existingItem.setQuantity(newqtt);
+                                existingItem.setTotalPrice(newttPrice);
+                                database.child(cartID).setValue(existingItem);
+                            }
+                        } else {
+                            Cart newCartItem = new Cart();
+                            newCartItem.setName(shoeName);
+                            newCartItem.setImage(shoeImage);
+                            newCartItem.setPrice(shoePrice);
+                            newCartItem.setOldPrice(shoeOldPrice);
+                            newCartItem.setQuantity(quantity);
+                            newCartItem.setTotalPrice(Float.parseFloat(shoePrice) * quantity);
+                            database.child(cartID).setValue(newCartItem);
+                        }
+                        Toast.makeText(detailproduct.this, "Đã thêm sản phẩm vào giỏ hàng", Toast.LENGTH_SHORT).show();
                     }
-                } else {
-                    String shoeName = getIntent().getExtras().getString("name");
-                    String shoeImage = getIntent().getExtras().getString("image");
-                    String shoePrice = getIntent().getExtras().getString("price");
-                    String shoeID = getIntent().getExtras().getString("id");
-                    Cart newCartItem = new Cart();
-                    newCartItem.setName(shoeName);
-                    newCartItem.setImage(shoeImage);
-                    newCartItem.setSaleprice(shoePrice);
-                    newCartItem.setQuantity(quantity);
-                    newCartItem.setTotalPrice(Double.parseDouble(shoePrice) * quantity);
-                    database.child(cartID).setValue(newCartItem);
-                }
-                Toast.makeText(detailproduct.this, "Đã thêm vào giỏ hàng", Toast.LENGTH_SHORT).show();
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.w("Failed to read value.", error.toException());
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Log.w("Failed to read value.", error.toException());
+                    }
+                });
             }
         });
     }
