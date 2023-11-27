@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,12 +26,14 @@ public class CartActivity extends AppCompatActivity {
     RecyclerView rv;
     ImageView imgmess;
     Button btncheckout;
+    TextView txtamount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
 
+        TextView txtAmount = findViewById(R.id.txt_cartAmount);
         rv = findViewById(R.id.recyclerview_cart);
         rv.setHasFixedSize(true);
         rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
@@ -45,6 +48,7 @@ public class CartActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot Snapshot : snapshot.getChildren()) {
                     Cart cart = Snapshot.getValue(Cart.class);
+                    cart.setKey(Snapshot.getKey());
                     cartList.add(cart);
                 }
                 adapter_cart.notifyDataSetChanged();
@@ -55,6 +59,22 @@ public class CartActivity extends AppCompatActivity {
                 Log.w("Failed to read value.", error.toException());
             }
         });
+
+        //get amount in cart
+        DatabaseReference amountDatabase = FirebaseDatabase.getInstance().getReference("Cart");
+        amountDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int itemCount = (int) snapshot.getChildrenCount();
+                txtAmount.setText("(" + String.valueOf(itemCount) + ")");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w("Failed to read value.", error.toException());
+            }
+        });
+
 
         //open message
         imgmess = findViewById(R.id.img_message);
@@ -67,7 +87,7 @@ public class CartActivity extends AppCompatActivity {
         });
 
         //open pay
-        btncheckout=findViewById(R.id.btn_checkout);
+        btncheckout = findViewById(R.id.btn_checkout);
         btncheckout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -1,7 +1,7 @@
 package com.example.shoesapplication;
 
 public class Cart {
-    String name, price, oldPrice, image;
+    String name, price, oldPrice, image, key;
     int quantity;
     float totalPrice;
 
@@ -29,6 +29,10 @@ public class Cart {
         return totalPrice;
     }
 
+    public String getKey() {
+        return key;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -51,5 +55,9 @@ public class Cart {
 
     public void setTotalPrice(float totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 }

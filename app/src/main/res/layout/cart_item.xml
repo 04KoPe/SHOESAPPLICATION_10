@@ -37,14 +37,14 @@
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="140dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp">
 
         <TextView
             android:id="@+id/txt_cartItemName"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nike Air Jordan 1 Low GS ‘White Gym Red’"
             android:textColor="@color/black"
@@ -120,6 +120,22 @@
             android:src="@drawable/plus"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@id/txt_itemAmount" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/txt_totalItemPrice"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/txt_cartItemName"-->
+<!--            android:layout_marginBottom="8dp"-->
+<!--            android:layout_toRightOf="@+id/txt_oldPrice"-->
+<!--            android:text="đ 880.000"-->
+<!--            android:textColor="@color/red"-->
+<!--            android:textSize="14sp"-->
+<!--            android:textStyle="bold"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintRight_toRightOf="parent"-->
+<!--            android:layout_marginLeft="20dp"/>-->
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

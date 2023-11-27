@@ -4,15 +4,24 @@ import android.content.Context;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.StrikethroughSpan;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
@@ -38,9 +47,23 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
         holder.txt_cartName.setText(cart.getName());
         holder.txtPrice.setText(cart.getPrice());
         holder.txtoldPrice.setText(cart.getOldPrice());
+//        holder.txttotalItemPrice.setText(String.valueOf(cart.getTotalPrice()));
         holder.txtcartAmount.setText(String.valueOf(cart.getQuantity()));
         Picasso.get().load(cart.getImage()).into(holder.img_cartItem);
 
+
+        //btn delete item
+        holder.imgdeleleItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String itemId = cart.getKey();
+                FirebaseDatabase.getInstance().getReference("Cart").child(itemId).removeValue();
+                notifyItemRemoved(holder.getAdapterPosition());
+                notifyDataSetChanged();
+            }
+        });
+
+        //btn_plus
         holder.imgplus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,14 +79,13 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
         holder.txtoldPrice.setText(spannableString);
     }
 
-    //btn_plus
-    public void plusNumber(List<Cart> cartList, int position) {
-
-    }
-
-
     @Override
     public int getItemCount() {
         return cartList.size();
+    }
+    public void updateData(List<Cart> newData) {
+        this.cartList = newData;
+        notifyDataSetChanged();
+
     }
 }
