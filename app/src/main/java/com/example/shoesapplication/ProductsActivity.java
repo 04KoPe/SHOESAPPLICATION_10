@@ -122,6 +122,7 @@ public class ProductsActivity extends AppCompatActivity implements IProductLoadL
         database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                listProducts.clear(); 
                 for (DataSnapshot brandSnapshot : snapshot.getChildren()) {
                     String brandName = brandSnapshot.getKey();
                     List<Product> products = new ArrayList<>();

@@ -38,6 +38,14 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
     @Override
     public CartHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(c).inflate(R.layout.cart_item, parent, false);
+        view.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                // Handle long click event
+                notifyDataSetChanged();
+                return true;
+            }
+        });
         return new CartHolder(view);
     }
 
@@ -57,9 +65,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
             @Override
             public void onClick(View v) {
                 String itemId = cart.getKey();
+                cartList.clear();
                 FirebaseDatabase.getInstance().getReference("Cart").child(itemId).removeValue();
-                notifyItemRemoved(holder.getAdapterPosition());
-                notifyDataSetChanged();
             }
         });
 

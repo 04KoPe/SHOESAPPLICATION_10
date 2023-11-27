@@ -34,32 +34,7 @@ public class CartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cart);
 
         TextView txtAmount = findViewById(R.id.txt_cartAmount);
-        rv = findViewById(R.id.recyclerview_cart);
-        rv.setHasFixedSize(true);
-        rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-
-        List<Cart> cartList = new ArrayList<>();
-        CartAdapter adapter_cart = new CartAdapter(this, cartList);
-        rv.setAdapter(adapter_cart);
-
-        DatabaseReference database = FirebaseDatabase.getInstance().getReference("Cart");
-        database.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot Snapshot : snapshot.getChildren()) {
-                    Cart cart = Snapshot.getValue(Cart.class);
-                    cart.setKey(Snapshot.getKey());
-                    cartList.add(cart);
-                }
-                adapter_cart.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.w("Failed to read value.", error.toException());
-            }
-        });
-
+        loadData();
         //get amount in cart
         DatabaseReference amountDatabase = FirebaseDatabase.getInstance().getReference("Cart");
         amountDatabase.addValueEventListener(new ValueEventListener() {
@@ -93,6 +68,35 @@ public class CartActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(CartActivity.this, Checkout.class);
                 startActivity(intent);
+            }
+        });
+    }
+
+    public void loadData() {
+        rv = findViewById(R.id.recyclerview_cart);
+        rv.setHasFixedSize(true);
+        rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+
+        List<Cart> cartList = new ArrayList<>();
+        CartAdapter adapter_cart = new CartAdapter(this, cartList);
+        rv.setAdapter(adapter_cart);
+
+        DatabaseReference database = FirebaseDatabase.getInstance().getReference("Cart");
+        database.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                cartList.clear();
+                for (DataSnapshot Snapshot : snapshot.getChildren()) {
+                    Cart cart = Snapshot.getValue(Cart.class);
+                    cart.setKey(Snapshot.getKey());
+                    cartList.add(cart);
+                }
+                adapter_cart.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w("Failed to read value.", error.toException());
             }
         });
     }
