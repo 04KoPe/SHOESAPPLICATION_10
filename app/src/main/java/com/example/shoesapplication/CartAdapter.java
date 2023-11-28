@@ -1,6 +1,7 @@
 package com.example.shoesapplication;
 
 import android.content.Context;
+import android.content.Intent;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.StrikethroughSpan;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -29,6 +31,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
 
     Context c;
     List<Cart> cartList;
+    TotalPriceListener totalPriceListener;
 
     public CartAdapter(Context c, List<Cart> cartList) {
         this.c = c;
@@ -100,22 +103,42 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
             }
         });
 
+        //check to buy product
+        holder.itemCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                float totalPrice = cart.getTotalPrice();
+//        DecimalFormat df = new DecimalFormat("###,###,###,000");
+//        String formattedNumber = df.format(totalPrice*1000);
+//        holder.txttotalItemPrice.setText("đ " + formattedNumber);
+            }
+        });
+
         //chu gacg ngang
         String text = holder.txtoldPrice.getText().toString();
         SpannableString spannableString = new SpannableString(text);
         StrikethroughSpan strikethroughSpan = new StrikethroughSpan();
         spannableString.setSpan(strikethroughSpan, 0, text.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         holder.txtoldPrice.setText(spannableString);
+
+        //total price pass to cartactivity
+        float total = 0;
+        for(Cart cart1:cartList){
+            total += cart1.getTotalPrice();
+        }
+//        Intent i =new Intent(c, CartActivity.class);
+//        i.putExtra("total",total);
+//        c.startActivity(i);
+        if (totalPriceListener != null) {
+            totalPriceListener.onTotalPriceCalculated(total);
+        }
     }
 
+        public interface TotalPriceListener {
+        void onTotalPriceCalculated(float totalPrice);
+    }
     @Override
     public int getItemCount() {
         return cartList.size();
-    }
-
-    public void updateData(List<Cart> newData) {
-        this.cartList = newData;
-        notifyDataSetChanged();
-
     }
 }

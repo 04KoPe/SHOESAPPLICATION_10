@@ -19,6 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,14 +27,14 @@ public class CartActivity extends AppCompatActivity {
     RecyclerView rv;
     ImageView imgmess;
     Button btncheckout;
-    TextView txtamount;
+    TextView txtamount, txtcartTotal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
 
-        TextView txtAmount = findViewById(R.id.txt_cartAmount);
+        txtamount = findViewById(R.id.txt_cartAmount);
         loadData();
         //get amount in cart
         DatabaseReference amountDatabase = FirebaseDatabase.getInstance().getReference("Cart");
@@ -41,7 +42,7 @@ public class CartActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 int itemCount = (int) snapshot.getChildrenCount();
-                txtAmount.setText("(" + String.valueOf(itemCount) + ")");
+                txtamount.setText("(" + String.valueOf(itemCount) + ")");
             }
 
             @Override
@@ -50,6 +51,11 @@ public class CartActivity extends AppCompatActivity {
             }
         });
 
+        //total price
+        txtcartTotal = findViewById(R.id.txt_total);
+//        Intent i = getIntent();
+//        float total = i.getFloatExtra("total",0);
+//        txtcartTotal.setText(String.valueOf(total));
 
         //open message
         imgmess = findViewById(R.id.img_message);
@@ -92,6 +98,8 @@ public class CartActivity extends AppCompatActivity {
                     cartList.add(cart);
                 }
                 adapter_cart.notifyDataSetChanged();
+
+                onTotalPriceCalculated(cartList);
             }
 
             @Override
@@ -99,5 +107,17 @@ public class CartActivity extends AppCompatActivity {
                 Log.w("Failed to read value.", error.toException());
             }
         });
+    }
+
+
+    public void onTotalPriceCalculated(List<Cart> cartList) {
+        //total price pass to cartactivity
+        float total = 0;
+        for (Cart cart1 : cartList) {
+            total += cart1.getTotalPrice();
+        }
+        DecimalFormat df = new DecimalFormat("###,###,###,000");
+        String formattedNumber = df.format(total * 1000);
+        txtcartTotal.setText("đ " + formattedNumber);
     }
 }
