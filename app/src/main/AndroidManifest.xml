@@ -20,12 +20,12 @@
         <activity android:name=".categories" />
         <activity android:name=".account" />
         <activity android:name=".Purchase" />
-        <activity android:name=".CartActivity" />
+        <activity android:name=".ProductsActivity" />
         <activity android:name=".Message" />
         <activity android:name=".search" />
         <activity android:name=".Notifications" />
         <activity
-            android:name=".ProductsActivity"
+            android:name=".CartActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -21,6 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,12 +54,15 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
     public void onBindViewHolder(@NonNull CartHolder holder, int position) {
         Cart cart = cartList.get(position);
         holder.txt_cartName.setText(cart.getName());
-        holder.txtPrice.setText(cart.getPrice());
-        holder.txtoldPrice.setText(cart.getOldPrice());
-//        holder.txttotalItemPrice.setText(String.valueOf(cart.getTotalPrice()));
+        holder.txtPrice.setText("đ " + cart.getPrice());
+        holder.txtoldPrice.setText("đ " + cart.getOldPrice());
         holder.txtcartAmount.setText(String.valueOf(cart.getQuantity()));
         Picasso.get().load(cart.getImage()).into(holder.img_cartItem);
 
+//        float totalPrice = cart.getTotalPrice();
+//        DecimalFormat df = new DecimalFormat("###,###,###,000");
+//        String formattedNumber = df.format(totalPrice*1000);
+//        holder.txttotalItemPrice.setText("đ " + formattedNumber);
 
         //btn delete item
         holder.imgdeleleItem.setOnClickListener(new View.OnClickListener() {
@@ -74,7 +78,25 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
         holder.imgplus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                cart.setQuantity(cart.getQuantity() + 1);
+                float newttPrice = Float.parseFloat(cart.getPrice()) * cart.getQuantity();
+                cart.setTotalPrice(newttPrice);
+                String itemId = cart.getKey();
+                FirebaseDatabase.getInstance().getReference("Cart").child(itemId).setValue(cart);
+            }
+        });
 
+        //btn_plus
+        holder.imgminus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (cart.getQuantity() > 1) {
+                    cart.setQuantity(cart.getQuantity() - 1);
+                    float newttPrice = Float.parseFloat(cart.getPrice()) * cart.getQuantity();
+                    cart.setTotalPrice(newttPrice);
+                    String itemId = cart.getKey();
+                    FirebaseDatabase.getInstance().getReference("Cart").child(itemId).setValue(cart);
+                }
             }
         });
 
@@ -90,6 +112,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
     public int getItemCount() {
         return cartList.size();
     }
+
     public void updateData(List<Cart> newData) {
         this.cartList = newData;
         notifyDataSetChanged();
