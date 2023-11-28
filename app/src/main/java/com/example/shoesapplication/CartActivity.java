@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,7 +28,8 @@ public class CartActivity extends AppCompatActivity {
     RecyclerView rv;
     ImageView imgmess;
     Button btncheckout;
-    TextView txtamount, txtcartTotal;
+    TextView txtamount;
+    CheckBox checkAll;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,9 @@ public class CartActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 int itemCount = (int) snapshot.getChildrenCount();
                 txtamount.setText("(" + String.valueOf(itemCount) + ")");
+                if(itemCount==0){
+                    checkAll.setChecked(false);
+                }
             }
 
             @Override
@@ -51,11 +56,7 @@ public class CartActivity extends AppCompatActivity {
             }
         });
 
-        //total price
-        txtcartTotal = findViewById(R.id.txt_total);
-//        Intent i = getIntent();
-//        float total = i.getFloatExtra("total",0);
-//        txtcartTotal.setText(String.valueOf(total));
+        checkAll = findViewById(R.id.all_item);
 
         //open message
         imgmess = findViewById(R.id.img_message);
@@ -97,11 +98,18 @@ public class CartActivity extends AppCompatActivity {
                     cart.setKey(Snapshot.getKey());
                     cartList.add(cart);
                 }
-
-
                 adapter_cart.notifyDataSetChanged();
 
-//                onTotalPriceCalculated(cartList);
+                checkAll.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (checkAll.isChecked()) {
+                            adapter_cart.selectAll();
+                        } else {
+                            adapter_cart.unSelectAll();
+                        }
+                    }
+                });
             }
 
             @Override
@@ -110,16 +118,4 @@ public class CartActivity extends AppCompatActivity {
             }
         });
     }
-
-
-//    public void onTotalPriceCalculated(List<Cart> cartList) {
-//        //total price pass to cartactivity
-//        float total = 0;
-//        for (Cart cart1 : cartList) {
-//            total += cart1.getTotalPrice();
-//        }
-//        DecimalFormat df = new DecimalFormat("###,###,###,000");
-//        String formattedNumber = df.format(total * 1000);
-//        txtcartTotal.setText("đ " + formattedNumber);
-//    }
 }

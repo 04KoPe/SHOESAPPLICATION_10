@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,9 +33,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
 
     Context c;
     List<Cart> cartList;
-
+    public boolean isAllChecked = false;
     float total = 0;
-//    TotalPriceListener totalPriceListener;
 
     public CartAdapter(Context c, List<Cart> cartList) {
         this.c = c;
@@ -65,11 +65,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
         holder.txtcartAmount.setText(String.valueOf(cart.getQuantity()));
         Picasso.get().load(cart.getImage()).into(holder.img_cartItem);
 
-//        float totalPrice = cart.getTotalPrice();
-//        DecimalFormat df = new DecimalFormat("###,###,###,000");
-//        String formattedNumber = df.format(totalPrice*1000);
-//        holder.txttotalItemPrice.setText("đ " + formattedNumber);
-
         //btn delete item
         holder.imgdeleleItem.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,6 +72,10 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
                 String itemId = cart.getKey();
                 cartList.clear();
                 FirebaseDatabase.getInstance().getReference("Cart").child(itemId).removeValue();
+                if (holder.itemCheck.isChecked()) {
+                    total -= cart.getTotalPrice();
+                    grandTotal(total);
+                }
             }
         });
 
@@ -121,10 +120,20 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
                 if (isChecked) {
                     total += cart.getTotalPrice();
                 }
-                else total -= cart.getTotalPrice();
+                else{
+                    total -= cart.getTotalPrice();
+                    CheckBox checkAll = ((CartActivity) c).findViewById(R.id.all_item);
+                    checkAll.setChecked(false);
+                }
                 grandTotal(total);
             }
         });
+
+        //check all item
+        if (!isAllChecked){
+            holder.itemCheck.setChecked(false);
+        }
+        else  holder.itemCheck.setChecked(true);
 
         //chu gacg ngang
         String text = holder.txtoldPrice.getText().toString();
@@ -132,18 +141,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
         StrikethroughSpan strikethroughSpan = new StrikethroughSpan();
         spannableString.setSpan(strikethroughSpan, 0, text.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         holder.txtoldPrice.setText(spannableString);
-
-        //total price pass to cartactivity
-//        float total = 0;
-//        for (Cart cart1 : cartList) {
-//            total += cart1.getTotalPrice();
-//        }
-//        Intent i =new Intent(c, CartActivity.class);
-//        i.putExtra("total",total);
-//        c.startActivity(i);
-//        if (totalPriceListener != null) {
-//            totalPriceListener.onTotalPriceCalculated(total);
-//        }
     }
 
     public void grandTotal(float total) {
@@ -152,16 +149,16 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
         String formattedNumber = df.format(total * 1000);
         txtcartTotal.setText("đ " + formattedNumber);
     }
-
-//    @Override
-//    publ
-
-//    public interface TotalPriceListener {
-//        void onTotalPriceCalculated(float totalPrice);
-//    }
+    public void selectAll(){
+        isAllChecked=true;
+        notifyDataSetChanged();
+    }
+    public void unSelectAll(){
+        isAllChecked=false;
+        notifyDataSetChanged();
+    }
 
     @Override
-
     public int getItemCount() {
         return cartList.size();
     }
