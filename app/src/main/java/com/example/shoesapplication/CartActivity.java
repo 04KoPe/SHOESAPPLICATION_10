@@ -97,9 +97,11 @@ public class CartActivity extends AppCompatActivity {
                     cart.setKey(Snapshot.getKey());
                     cartList.add(cart);
                 }
+
+
                 adapter_cart.notifyDataSetChanged();
 
-                onTotalPriceCalculated(cartList);
+//                onTotalPriceCalculated(cartList);
             }
 
             @Override
@@ -110,14 +112,14 @@ public class CartActivity extends AppCompatActivity {
     }
 
 
-    public void onTotalPriceCalculated(List<Cart> cartList) {
-        //total price pass to cartactivity
-        float total = 0;
-        for (Cart cart1 : cartList) {
-            total += cart1.getTotalPrice();
-        }
-        DecimalFormat df = new DecimalFormat("###,###,###,000");
-        String formattedNumber = df.format(total * 1000);
-        txtcartTotal.setText("đ " + formattedNumber);
-    }
+//    public void onTotalPriceCalculated(List<Cart> cartList) {
+//        //total price pass to cartactivity
+//        float total = 0;
+//        for (Cart cart1 : cartList) {
+//            total += cart1.getTotalPrice();
+//        }
+//        DecimalFormat df = new DecimalFormat("###,###,###,000");
+//        String formattedNumber = df.format(total * 1000);
+//        txtcartTotal.setText("đ " + formattedNumber);
+//    }
 }

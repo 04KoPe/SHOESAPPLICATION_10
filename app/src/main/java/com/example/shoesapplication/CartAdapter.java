@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -31,7 +32,9 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
 
     Context c;
     List<Cart> cartList;
-    TotalPriceListener totalPriceListener;
+
+    float total = 0;
+//    TotalPriceListener totalPriceListener;
 
     public CartAdapter(Context c, List<Cart> cartList) {
         this.c = c;
@@ -86,6 +89,10 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
                 cart.setTotalPrice(newttPrice);
                 String itemId = cart.getKey();
                 FirebaseDatabase.getInstance().getReference("Cart").child(itemId).setValue(cart);
+                if (holder.itemCheck.isChecked()) {
+                    total += Float.parseFloat(cart.getPrice());
+                    grandTotal(total);
+                }
             }
         });
 
@@ -99,6 +106,10 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
                     cart.setTotalPrice(newttPrice);
                     String itemId = cart.getKey();
                     FirebaseDatabase.getInstance().getReference("Cart").child(itemId).setValue(cart);
+                    if (holder.itemCheck.isChecked()) {
+                        total -= Float.parseFloat(cart.getPrice());
+                        grandTotal(total);
+                    }
                 }
             }
         });
@@ -107,10 +118,11 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
         holder.itemCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                float totalPrice = cart.getTotalPrice();
-//        DecimalFormat df = new DecimalFormat("###,###,###,000");
-//        String formattedNumber = df.format(totalPrice*1000);
-//        holder.txttotalItemPrice.setText("đ " + formattedNumber);
+                if (isChecked) {
+                    total += cart.getTotalPrice();
+                }
+                else total -= cart.getTotalPrice();
+                grandTotal(total);
             }
         });
 
@@ -122,22 +134,34 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
         holder.txtoldPrice.setText(spannableString);
 
         //total price pass to cartactivity
-        float total = 0;
-        for(Cart cart1:cartList){
-            total += cart1.getTotalPrice();
-        }
+//        float total = 0;
+//        for (Cart cart1 : cartList) {
+//            total += cart1.getTotalPrice();
+//        }
 //        Intent i =new Intent(c, CartActivity.class);
 //        i.putExtra("total",total);
 //        c.startActivity(i);
-        if (totalPriceListener != null) {
-            totalPriceListener.onTotalPriceCalculated(total);
-        }
+//        if (totalPriceListener != null) {
+//            totalPriceListener.onTotalPriceCalculated(total);
+//        }
     }
 
-        public interface TotalPriceListener {
-        void onTotalPriceCalculated(float totalPrice);
+    public void grandTotal(float total) {
+        TextView txtcartTotal = ((CartActivity) c).findViewById(R.id.txt_total);
+        DecimalFormat df = new DecimalFormat("###,###,###,000");
+        String formattedNumber = df.format(total * 1000);
+        txtcartTotal.setText("đ " + formattedNumber);
     }
+
+//    @Override
+//    publ
+
+//    public interface TotalPriceListener {
+//        void onTotalPriceCalculated(float totalPrice);
+//    }
+
     @Override
+
     public int getItemCount() {
         return cartList.size();
     }
