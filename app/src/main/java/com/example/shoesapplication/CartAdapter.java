@@ -34,6 +34,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
     Context c;
     List<Cart> cartList;
     public boolean isAllChecked = false;
+    List<Integer> selected = new ArrayList<>();
     float total = 0;
 
     public CartAdapter(Context c, List<Cart> cartList) {
@@ -95,6 +96,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
             }
         });
 
+        int index = holder.getAdapterPosition();
+
         //btn_plus
         holder.imgminus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,21 +122,24 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     total += cart.getTotalPrice();
-                }
-                else{
+                    if (!selected.contains(index))
+                        selected.add(index);
+                } else {
                     total -= cart.getTotalPrice();
                     CheckBox checkAll = ((CartActivity) c).findViewById(R.id.all_item);
                     checkAll.setChecked(false);
+                    if (selected.contains(index))
+                        selected.remove(Integer.valueOf(index));
                 }
                 grandTotal(total);
             }
         });
 
-        //check all item
-        if (!isAllChecked){
-            holder.itemCheck.setChecked(false);
-        }
-        else  holder.itemCheck.setChecked(true);
+
+        //check item
+        if (selected.contains(index)) {
+            holder.itemCheck.setChecked(true);
+        } else holder.itemCheck.setChecked(false);
 
         //chu gacg ngang
         String text = holder.txtoldPrice.getText().toString();
@@ -149,12 +155,16 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
         String formattedNumber = df.format(total * 1000);
         txtcartTotal.setText("đ " + formattedNumber);
     }
-    public void selectAll(){
-        isAllChecked=true;
+
+    public void selectAll() {
+        for (int i = 0; i < cartList.size(); i++) {
+            selected.add(i);
+        }
         notifyDataSetChanged();
     }
-    public void unSelectAll(){
-        isAllChecked=false;
+
+    public void unSelectAll() {
+        selected.clear();
         notifyDataSetChanged();
     }
 
