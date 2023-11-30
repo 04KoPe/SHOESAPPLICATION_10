@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="2dp">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_size"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/buttoncolor"
+        android:text="36"
+        android:textSize="12sp"
+        android:textStyle="bold"/>
+</RelativeLayout>

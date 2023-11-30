@@ -13,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.shoesapplication.listener.IProductLoadListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
@@ -25,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductsActivity extends AppCompatActivity implements IProductLoadListener {
+public class ProductsActivity extends AppCompatActivity {
     BottomNavigationView btnavview;
     RecyclerView rv;
     DatabaseReference database;
@@ -296,14 +295,4 @@ public class ProductsActivity extends AppCompatActivity implements IProductLoadL
 //                });
 //    }
 
-    @Override
-    public void onProductLoadSuccess(List<Product> productList) {
-        ProductsAdapter adapter_nike = new ProductsAdapter(this, productList);
-        rv.setAdapter(adapter_nike);
-    }
-
-    @Override
-    public void onProductLoadFailed(String message) {
-
-    }
 }
