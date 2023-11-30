@@ -66,6 +66,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
         holder.txtcartAmount.setText(String.valueOf(cart.getQuantity()));
         Picasso.get().load(cart.getImage()).into(holder.img_cartItem);
 
+        int index = holder.getAdapterPosition();
+
         //btn delete item
         holder.imgdeleleItem.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,7 +98,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
             }
         });
 
-        int index = holder.getAdapterPosition();
 
         //btn_plus
         holder.imgminus.setOnClickListener(new View.OnClickListener() {

@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,7 +31,7 @@ public class ProductsActivity extends AppCompatActivity implements IProductLoadL
     DatabaseReference database;
     ImageView imgcart, imgmess;
 
-    //IProductLoadListener productLoadListener;
+    TextView txtcartNoti;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,7 +123,7 @@ public class ProductsActivity extends AppCompatActivity implements IProductLoadL
         database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                listProducts.clear(); 
+                listProducts.clear();
                 for (DataSnapshot brandSnapshot : snapshot.getChildren()) {
                     String brandName = brandSnapshot.getKey();
                     List<Product> products = new ArrayList<>();
@@ -226,6 +227,21 @@ public class ProductsActivity extends AppCompatActivity implements IProductLoadL
 //        ProductsAdapter adapter_vans = new ProductsAdapter(this, vans);
 //        rv.setAdapter(adapter_vans);
 
+        //count amount item in cart
+        txtcartNoti = findViewById(R.id.txt_cartNoti);
+        DatabaseReference amountDatabase = FirebaseDatabase.getInstance().getReference("Cart");
+        amountDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int itemCount = (int) snapshot.getChildrenCount();
+                txtcartNoti.setText(String.valueOf(itemCount));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w("Failed to read value.", error.toException());
+            }
+        });
 
         //open cart
         imgcart = findViewById(R.id.cart);

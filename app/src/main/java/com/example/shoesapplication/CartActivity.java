@@ -38,6 +38,7 @@ public class CartActivity extends AppCompatActivity {
 
         txtamount = findViewById(R.id.txt_cartAmount);
         loadData();
+
         //get amount in cart
         DatabaseReference amountDatabase = FirebaseDatabase.getInstance().getReference("Cart");
         amountDatabase.addValueEventListener(new ValueEventListener() {
