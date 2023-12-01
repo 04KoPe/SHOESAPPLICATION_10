@@ -33,7 +33,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
 
     Context c;
     List<Cart> cartList;
-    public boolean isAllChecked = false;
     List<Integer> selected = new ArrayList<>();
     float total = 0;
 
@@ -46,14 +45,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
     @Override
     public CartHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(c).inflate(R.layout.cart_item, parent, false);
-        view.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                // Handle long click event
-                notifyDataSetChanged();
-                return true;
-            }
-        });
         return new CartHolder(view);
     }
 
@@ -73,12 +64,11 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
             @Override
             public void onClick(View v) {
                 String itemId = cart.getKey();
-                cartList.clear();
-                FirebaseDatabase.getInstance().getReference("Cart").child(itemId).removeValue();
                 if (holder.itemCheck.isChecked()) {
-                    total -= cart.getTotalPrice();
+                    holder.itemCheck.setChecked(false);
                     grandTotal(total);
                 }
+                FirebaseDatabase.getInstance().getReference("Cart").child(itemId).removeValue();
             }
         });
 
@@ -97,7 +87,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder> {
                 }
             }
         });
-
 
         //btn_plus
         holder.imgminus.setOnClickListener(new View.OnClickListener() {

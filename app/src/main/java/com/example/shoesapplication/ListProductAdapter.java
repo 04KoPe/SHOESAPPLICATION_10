@@ -21,9 +21,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ListProductAdapter extends RecyclerView.Adapter<ListProductHolder> {
-
-    public OnItemClickListener listener;
-    private RecyclerView.RecycledViewPool viewPool = new RecyclerView.RecycledViewPool();
     Context c;
     List<ListProduct> listProducts;
 
@@ -64,22 +61,6 @@ public class ListProductAdapter extends RecyclerView.Adapter<ListProductHolder> 
                 c.startActivity(intent);
             }
         });
-
-//        DatabaseReference database = FirebaseDatabase.getInstance().getReference("Sneakers/" + listProduct.getBrandName());
-//        database.addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                for (DataSnapshot productSnapshot : snapshot.getChildren()) {
-//                    Product product = productSnapshot.getValue(Product.class);
-//                    products.add(product);
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                Log.w("Failed to read value.", error.toException());
-//            }
-//        });
     }
 
     @Override

@@ -112,7 +112,6 @@ public class CartActivity extends AppCompatActivity {
                     }
                 });
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Log.w("Failed to read value.", error.toException());
