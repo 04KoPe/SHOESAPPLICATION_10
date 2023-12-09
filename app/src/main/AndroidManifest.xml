@@ -13,19 +13,19 @@
         <activity android:name=".detailproduct" />
         <activity android:name=".Checkout" />
         <activity android:name=".HomePage" />
-        <activity android:name=".categories" />
+        <activity android:name=".ProductsActivity" />
         <activity android:name=".AccountDDNActivity" />
         <activity android:name=".LogInActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".CartActivity" />
         <activity android:name=".account" />
         <activity android:name=".Purchase" />
-        <activity android:name=".ProductsActivity" />
+        <activity android:name=".tenshoes" />
         <activity android:name=".Message" />
         <activity android:name=".search" />
         <activity android:name=".Notifications" />
         <activity
-            android:name=".tenshoes"
+            android:name=".categories"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

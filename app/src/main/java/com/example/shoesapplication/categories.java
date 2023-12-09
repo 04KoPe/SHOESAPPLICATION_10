@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class categories extends AppCompatActivity {
     BottomNavigationView btnavview;
-    private TextView txtsneaker;
+    private TextView txtsneaker, txtsandal;
     ImageView imgcart, imgmess;
     TextView txtcartNoti;
 
@@ -37,7 +37,19 @@ public class categories extends AppCompatActivity {
             public void onClick(View v) {
                 //Chuyển đổi activity để khi nhấn vào imageview nó chuyển qua layout khác
                 Intent intent = new Intent(categories.this, ProductsActivity.class);
-                //Khởi chạy Intent
+                intent.putExtra("Product",txtsneaker.getText());
+                startActivity(intent);
+            }
+        });
+
+        txtsandal = (TextView) findViewById(R.id.textsandal);
+
+        txtsandal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Chuyển đổi activity để khi nhấn vào imageview nó chuyển qua layout khác
+                Intent intent = new Intent(categories.this, ProductsActivity.class);
+                intent.putExtra("Product",txtsandal.getText());
                 startActivity(intent);
             }
         });

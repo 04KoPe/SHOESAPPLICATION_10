@@ -106,6 +106,9 @@ public class ProductsActivity extends AppCompatActivity {
             }
         });
 
+        Intent intent = getIntent();
+        String product = intent.getStringExtra("Product");
+
         //get shoes from realtime database
         rv = findViewById(R.id.rv_product);
         rv.setHasFixedSize(true);
@@ -115,7 +118,7 @@ public class ProductsActivity extends AppCompatActivity {
         ListProductAdapter listProductAdapter = new ListProductAdapter(this, listProducts);
         rv.setAdapter(listProductAdapter);
 
-        database = FirebaseDatabase.getInstance().getReference("Sneakers");
+        database = FirebaseDatabase.getInstance().getReference(product);
         database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
