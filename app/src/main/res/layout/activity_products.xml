@@ -13,7 +13,7 @@
         android:background="@color/bgfooter">
 
         <ImageView
-            android:id="@+id/img_back"
+            android:id="@+id/img_backOfProduct"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginLeft="20dp"

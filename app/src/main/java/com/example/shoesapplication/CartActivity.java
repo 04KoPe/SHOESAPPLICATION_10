@@ -26,7 +26,7 @@ import java.util.List;
 
 public class CartActivity extends AppCompatActivity {
     RecyclerView rv;
-    ImageView imgmess;
+    ImageView imgmess, imgback;
     Button btncheckout;
     TextView txtamount;
     CheckBox checkAll;
@@ -65,6 +65,16 @@ public class CartActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(CartActivity.this, Message.class);
+                startActivity(intent);
+            }
+        });
+
+        //back to product activity
+        imgback = findViewById(R.id.img_backOfCart);
+        imgback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CartActivity.this, ProductsActivity.class);
                 startActivity(intent);
             }
         });

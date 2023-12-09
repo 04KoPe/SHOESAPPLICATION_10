@@ -28,7 +28,7 @@ public class ProductsActivity extends AppCompatActivity {
     BottomNavigationView btnavview;
     RecyclerView rv;
     DatabaseReference database;
-    ImageView imgcart, imgmess;
+    ImageView imgcart, imgmess, imgback;
 
     TextView txtcartNoti;
 
@@ -172,6 +172,16 @@ public class ProductsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ProductsActivity.this, Message.class);
+                startActivity(intent);
+            }
+        });
+
+        //back to category activity
+        imgback = findViewById(R.id.img_backOfProduct);
+        imgback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ProductsActivity.this, categories.class);
                 startActivity(intent);
             }
         });

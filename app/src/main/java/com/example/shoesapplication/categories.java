@@ -2,6 +2,7 @@ package com.example.shoesapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -12,12 +13,17 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class categories extends AppCompatActivity {
     BottomNavigationView btnavview;
     private TextView txtsneaker;
-    ImageView imgcart, imgmess, imgsneaker;
-    private ImageView imageview;
+    ImageView imgcart, imgmess;
+    TextView txtcartNoti;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +36,7 @@ public class categories extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Chuyển đổi activity để khi nhấn vào imageview nó chuyển qua layout khác
-                Intent intent = new Intent(categories.this,ProductsActivity.class);
+                Intent intent = new Intent(categories.this, ProductsActivity.class);
                 //Khởi chạy Intent
                 startActivity(intent);
             }
@@ -43,6 +49,22 @@ public class categories extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(categories.this, CartActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        //count amount item in cart
+        txtcartNoti = findViewById(R.id.txt_cartNoti);
+        DatabaseReference amountDatabase = FirebaseDatabase.getInstance().getReference("Cart");
+        amountDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int itemCount = (int) snapshot.getChildrenCount();
+                txtcartNoti.setText(String.valueOf(itemCount));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w("Failed to read value.", error.toException());
             }
         });
 
