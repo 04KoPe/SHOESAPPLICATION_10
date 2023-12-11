@@ -1,0 +1,17 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape
+            android:shape="rectangle">
+
+            <corners android:radius="50dp"/>
+
+        </shape>
+    </item>
+    <item android:right="5dp" android:left="5dp" android:top="5dp" android:bottom="5dp">
+        <shape
+            android:shape="rectangle">
+            <corners android:radius="50dp"/>
+            <solid android:color="#D5D1D1" /> <!-- Màu nền bên trong viền, bạn có thể điều chỉnh màu ở đây -->
+        </shape>
+    </item>
+</layer-list>
