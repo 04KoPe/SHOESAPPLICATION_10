@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
@@ -27,52 +29,24 @@ public class categories extends AppCompatActivity {
     private TextView txtsneaker, txtsandal;
     ImageView imgcart, imgmess;
     TextView txtcartNoti, txtsnkAmount;
+    RecyclerView rv;
+    List<Category> categories;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.categories);
 
-        txtsneaker = (TextView) findViewById(R.id.txt_sneaker);
-
-        txtsneaker.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Chuyển đổi activity để khi nhấn vào imageview nó chuyển qua layout khác
-                Intent intent = new Intent(categories.this, ProductsActivity.class);
-                intent.putExtra("Product", txtsneaker.getText());
-                startActivity(intent);
-            }
-        });
-
-        txtsandal = (TextView) findViewById(R.id.textsandal);
-
-        txtsandal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(categories.this, ProductsActivity.class);
-                intent.putExtra("Product", txtsandal.getText());
-                startActivity(intent);
-            }
-        });
-
-        //get amount of each product shoes
-        txtsnkAmount = (TextView) findViewById(R.id.txt_sneakerAmount);
-        DatabaseReference prdAmount = FirebaseDatabase.getInstance().getReference("Sneakers");
-        prdAmount.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                int itemCount = 0;
-                for (DataSnapshot Snapshot : snapshot.getChildren()) {
-                    itemCount += (int) Snapshot.getChildrenCount();
-                }
-                txtsnkAmount.setText("(" + String.valueOf(itemCount) + ")");
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.w("Failed to read value.", error.toException());
-            }
-        });
+        rv = findViewById(R.id.rv_categories);
+        categories = new ArrayList<>();
+        categories.add(new Category("Sneakers", R.drawable.nike_1));
+        categories.add(new Category("Sandals", R.drawable.sandal));
+        categories.add(new Category("Boots", R.drawable.boott));
+        categories.add(new Category("Stilettos", R.drawable.stiletto));
+        categories.add(new Category("Flats", R.drawable.flatss));
+        rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        CategoryAdapter adapter = new CategoryAdapter(this, categories);
+        rv.setAdapter(adapter);
 
         //open cart
         imgcart = findViewById(R.id.cart);
