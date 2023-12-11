@@ -1,12 +1,12 @@
 package com.example.shoesapplication.Search;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.shoesapplication.HomePage.HomePage;
 import com.example.shoesapplication.Notifications;
@@ -23,7 +23,7 @@ public class search_after_text extends AppCompatActivity {
     RecyclerView shoesRecylerView;
     DatabaseReference database;
 
-    RecyclerAdapter adapterR;
+    RAdapter adapterR;
     ArrayList<Item> shoesList;
 
     public void getReference(){

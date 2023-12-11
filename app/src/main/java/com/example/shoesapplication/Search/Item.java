@@ -1,57 +1,52 @@
 package com.example.shoesapplication.Search;
 
-import android.widget.ImageView;
-import android.widget.TextView;
-
-import org.w3c.dom.Text;
-
 public class Item {
 
-    private int shoesIMG;
+    private String image;
 
-    private String shoesName;
-    private String shoesQuantity;
-    private String shoesSize;
+    private String name;
+    private String oldPrice;
+    private String price;
 
-    public int getShoesIMG() {
-        return shoesIMG;
+    public String getImage() {
+        return image;
     }
 
-    public void setShoesIMG(int shoesIMG) {
-        this.shoesIMG = shoesIMG;
+    public void setImage(String image) {
+        this.image = image;
     }
 
-    public String getShoesName() {
-        return shoesName;
+    public String getName() {
+        return name;
     }
 
-    public void setShoesName(String shoesName) {
-        this.shoesName = shoesName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getShoesQuantity() {
-        return shoesQuantity;
+    public String getOldPrice() {
+        return oldPrice;
     }
 
-    public void setShoesQuantity(String shoesQuantity) {
-        this.shoesQuantity = shoesQuantity;
+    public void setOldPrice(String oldPrice) {
+        this.oldPrice = oldPrice;
     }
 
-    public String getShoesSize() {
-        return shoesSize;
+    public String getPrice() {
+        return price;
     }
 
-    public void setShoesSize(String shoesSize) {
-        this.shoesSize = shoesSize;
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public Item(){
+
     }
 
 
-    public Item(int shoesIMG, String shoesName, String shoesQuantity, String shoesSize) {
-        this.shoesIMG = shoesIMG;
-        this.shoesName = shoesName;
-        this.shoesQuantity = shoesQuantity;
-        this.shoesSize = shoesSize;
-    }
+
+
 
 
 

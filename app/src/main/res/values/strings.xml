@@ -22,6 +22,8 @@
     <string name="title_activity_sign_up">SignUpActivity</string>
     <string name="introText">Discover the best Shoes and Deals</string>
     <string name="deliveryFedEx">Delivery Est.: Oct 31 - Nov 12. FedEx International Economy</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="oldPrice">Old Price</string>
+    <string name="newPrice">New Price</string>
 </resources>
