@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".Search.search">
+
+
+
+    <RelativeLayout
+        android:id="@+id/bodyLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5">
+
+        <RelativeLayout
+            android:id="@+id/headerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="#F6F3F3">
+
+            <EditText
+                android:id="@+id/searchTextBar"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:background="@drawable/edit_round"
+                android:drawableStart="@drawable/ic_search_black_24dp"
+                android:drawableEnd="@drawable/baseline_linked_camera_24"
+                android:paddingHorizontal="20dp"
+                android:hint="Search anything you want"
+                android:layout_marginTop="30dp">
+
+            </EditText>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/searchBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/btnsearch"
+                android:text="Search"
+                android:layout_toRightOf="@id/searchTextBar"
+                android:layout_marginTop="30dp"/>
+
+        </RelativeLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/reListView"
+            android:layout_below="@id/headerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/footerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/naviBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#F6F3F3"
+            app:itemHorizontalTranslationEnabled="true"
+            app:itemIconTint="@color/color_navigation"
+            app:itemTextColor="@color/color_navigation"
+            app:labelVisibilityMode="labeled"
+            app:menu="@menu/bottom_nav_menu">
+
+
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    </RelativeLayout>
+</LinearLayout>
+

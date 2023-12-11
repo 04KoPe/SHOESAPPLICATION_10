@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".HomePage.HomePage">
+
+    <RelativeLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2.1"
+        android:background="#F6F3F3">
+
+        <ImageButton
+            android:id="@+id/profilePic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/baseline_person_24">
+
+        </ImageButton>
+
+        <TextView
+            android:id="@+id/welcomeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:layout_toRightOf="@+id/profilePic"
+            android:text="Welcome Back"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/nameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:layout_toRightOf="@+id/profilePic"
+            android:text="Vinh Thai"
+            android:textSize="20sp"
+            android:textStyle="bold">>
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/introText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/profilePic"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="@string/introText"
+            android:textSize="25sp">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/searchTextBar"
+            android:layout_width="370dp"
+            android:layout_height="35dp"
+            android:layout_below="@+id/introText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/edit_round"
+            android:drawableStart="@drawable/baseline_search_24"
+            android:hint="Search anything here"
+            android:paddingLeft="10dp"
+            android:textSize="15dp">
+
+        </EditText>
+
+        <HorizontalScrollView
+            android:id="@+id/featuredScroll"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/searchTextBar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="6dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/productsScrollable"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edit_round"
+                    android:drawableStart="@drawable/product_svgrepo_com"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="10dp"
+                    android:text="Products">
+
+                </androidx.appcompat.widget.AppCompatButton>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/dealsScrollable"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/edit_round"
+                    android:drawableStart="@drawable/flashsale"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="15dp"
+                    android:text="Deals">
+
+                </androidx.appcompat.widget.AppCompatButton>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/categoriesScrollable"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/edit_round"
+                    android:drawableStart="@drawable/category_svgrepo_com"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="15dp"
+                    android:text="Categories">
+
+                </androidx.appcompat.widget.AppCompatButton>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/savedScrollable"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/edit_round"
+                    android:drawableStart="@drawable/heart"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="15dp"
+                    android:text="Saved">
+
+                </androidx.appcompat.widget.AppCompatButton>
+
+            </LinearLayout>
+
+
+        </HorizontalScrollView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/bodyLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/shoesViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginTop="20dp" />
+
+        <me.relex.circleindicator.CircleIndicator
+            android:id="@+id/shoesVPIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/shoesViewPager"
+            android:layout_centerHorizontal="true"
+            app:ci_drawable="@drawable/bc_indicator">
+
+        </me.relex.circleindicator.CircleIndicator>
+
+        <TextView
+            android:id="@+id/popularText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/shoesVPIndicator"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Popular"
+            android:textColor="@color/black"
+            android:textSize="25sp">
+
+        </TextView>
+
+        <HorizontalScrollView
+            android:id="@+id/shoesViewHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/popularText"
+            android:layout_marginTop="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/Shoes1"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/edit_round_shoes"
+                    android:src="@drawable/download">
+
+                </ImageView>
+
+                <ImageView
+                    android:id="@+id/Shoes2"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/edit_round_shoes"
+                    android:src="@drawable/nike_shoes">
+
+                </ImageView>
+
+                <ImageView
+                    android:id="@+id/Shoes3"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginRight="5dp"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/edit_round_shoes"
+                    android:src="@drawable/nike_shoes_1">
+
+                </ImageView>
+
+                <ImageView
+                    android:id="@+id/Shoes4"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginRight="5dp"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/edit_round_shoes"
+                    android:src="@drawable/pegasus_40">
+
+                </ImageView>
+
+                <ImageView
+                    android:id="@+id/Shoes5"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/edit_round_shoes"
+                    android:src="@drawable/shoes_2">
+
+                </ImageView>
+
+            </LinearLayout>
+
+
+        </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/brandText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/shoesViewHorizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="Shop by Brand"
+            android:textColor="@color/black"
+            android:textSize="20sp">
+
+        </TextView>
+
+        <ImageView
+            android:id="@+id/adidas"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/brandText"
+            android:layout_marginLeft="38dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/adidas">
+
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/balance"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/brandText"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/adidas"
+            android:adjustViewBounds="true"
+            android:src="@drawable/altra_brand">
+
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/arreto"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/brandText"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/balance"
+            android:adjustViewBounds="true"
+            android:src="@drawable/aretto">
+
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/jordan"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/brandText"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/arreto"
+            android:adjustViewBounds="true"
+            android:src="@drawable/jordan">
+
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/titan"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/brandText"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/jordan"
+            android:adjustViewBounds="true"
+            android:src="@drawable/titan">
+
+        </ImageView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/footerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/naviBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#F6F3F3"
+            app:itemHorizontalTranslationEnabled="true"
+            app:itemIconTint="@color/color_navigation"
+            app:itemTextColor="@color/color_navigation"
+            app:labelVisibilityMode="labeled"
+            app:menu="@menu/bottom_nav_menu">
+
+
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    </RelativeLayout>
+
+
+    <!--    <RelativeLayout-->
+    <!--        android:id="@+id/footerLayout"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="0dp"-->
+    <!--        android:layout_weight="0.6"-->
+    <!--        android:background="#F6F3F3">-->
+
+    <!--        <Button-->
+    <!--            android:id="@+id/homepageBtn"-->
+    <!--            android:layout_width="70dp"-->
+    <!--            android:layout_height="70dp"-->
+    <!--            android:layout_alignParentLeft="true"-->
+    <!--            android:layout_centerInParent="true"-->
+    <!--            android:layout_marginLeft="15dp"-->
+    <!--            android:background="@drawable/edit_round_f6f3f3"-->
+    <!--            android:drawableTop="@drawable/home_1_svgrepo_com"-->
+    <!--            android:paddingTop="10dp"-->
+    <!--            android:paddingBottom="10dp"-->
+    <!--            android:text="Home"-->
+    <!--            android:textSize="10sp"-->
+    <!--            android:textStyle="bold">-->
+
+    <!--        </Button>-->
+
+    <!--        <Button-->
+    <!--            android:id="@+id/accountBtn"-->
+    <!--            android:layout_width="70dp"-->
+    <!--            android:layout_height="70dp"-->
+    <!--            android:layout_centerInParent="true"-->
+    <!--            android:layout_marginLeft="25dp"-->
+    <!--            android:layout_toRightOf="@id/homepageBtn"-->
+    <!--            android:background="@drawable/edit_round_f6f3f3"-->
+    <!--            android:drawableTop="@drawable/account_svgrepo_com"-->
+    <!--            android:paddingTop="10dp"-->
+    <!--            android:paddingBottom="10dp"-->
+    <!--            android:text="Account"-->
+    <!--            android:textSize="10sp"-->
+    <!--            android:textStyle="bold">-->
+
+    <!--        </Button>-->
+
+    <!--        <Button-->
+    <!--            android:id="@+id/searchBtn"-->
+    <!--            android:layout_width="70dp"-->
+    <!--            android:layout_height="70dp"-->
+    <!--            android:layout_centerInParent="true"-->
+    <!--            android:layout_marginRight="28dp"-->
+    <!--            android:layout_toLeftOf="@id/notfiBtn"-->
+    <!--            android:background="@drawable/edit_round_f6f3f3"-->
+    <!--            android:drawableTop="@drawable/search_svgrepo_com"-->
+    <!--            android:paddingTop="10dp"-->
+    <!--            android:paddingBottom="10dp"-->
+    <!--            android:text="Search"-->
+    <!--            android:textSize="10sp"-->
+    <!--            android:textStyle="bold">-->
+
+    <!--        </Button>-->
+
+    <!--        <Button-->
+    <!--            android:id="@+id/notfiBtn"-->
+    <!--            android:layout_width="75dp"-->
+    <!--            android:layout_height="70dp"-->
+    <!--            android:layout_alignParentRight="true"-->
+    <!--            android:layout_centerInParent="true"-->
+    <!--            android:layout_marginRight="25dp"-->
+    <!--            android:background="@drawable/edit_round_f6f3f3"-->
+    <!--            android:drawableTop="@drawable/notification_13_svgrepo_com"-->
+    <!--            android:paddingTop="3dp"-->
+    <!--            android:paddingBottom="15dp"-->
+    <!--            android:text="Notifications"-->
+    <!--            android:textSize="10sp"-->
+    <!--            android:textStyle="bold">-->
+
+    <!--        </Button>-->
+
+
+    <!--    </RelativeLayout>-->
+
+</LinearLayout>

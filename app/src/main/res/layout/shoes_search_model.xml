@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/shoesIMG"
+            android:layout_width="100dp"
+            android:layout_height="100dp">
+
+        </ImageView>
+
+        <TextView
+            android:id="@+id/shoesName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jordan 1 High Tactical Boots"
+            android:layout_toRightOf="@id/shoesIMG"
+            android:layout_marginLeft="15dp"
+            android:textStyle="bold"
+            android:textSize="17sp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/shoesSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Size: 8.5"
+            android:layout_toRightOf="@id/shoesIMG"
+            android:layout_below="@id/shoesName"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:textSize="15sp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/shoesQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/shoesIMG"
+            android:layout_below="@+id/shoesSize"
+            android:text="Quantity: 1"
+            android:layout_marginLeft="15dp"
+            android:textSize="15sp">
+
+        </TextView>
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>
