@@ -36,6 +36,7 @@
             app:layout_constraintLeft_toRightOf="@+id/img_account">
 
             <TextView
+                android:id="@+id/user_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TenShoes"

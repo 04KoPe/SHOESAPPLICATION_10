@@ -23,7 +23,7 @@ public class AccountDDNActivity extends AppCompatActivity {
     BottomNavigationView btnavview;
     TextView txtpurchases, txtcategories, txtsetting;
     ImageView imgcart, imgmess;
-    TextView txtcartNoti;
+    TextView txtcartNoti, txtUserName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,13 @@ public class AccountDDNActivity extends AppCompatActivity {
 
         btnavview = findViewById(R.id.bottomNavigation);
         btnavview.setSelectedItemId(R.id.accountNav);
+        txtUserName = findViewById(R.id.user_name);
 
+        User user = User.getUser(AccountDDNActivity.this);
+        Log.d("USER", String.valueOf(user));
+        if (user != null) {
+            txtUserName.setText(user.getUserName());
+        }
         //dieu huong den cac trang
         btnavview.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
