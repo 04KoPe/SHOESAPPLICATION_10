@@ -124,7 +124,7 @@
             android:textStyle="bold"></TextView>
 
         <TextView
-            android:id="@+id/texts230"
+            android:id="@+id/txt_sneakerAmount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

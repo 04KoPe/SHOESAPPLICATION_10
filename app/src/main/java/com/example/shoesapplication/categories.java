@@ -19,11 +19,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class categories extends AppCompatActivity {
     BottomNavigationView btnavview;
     private TextView txtsneaker, txtsandal;
     ImageView imgcart, imgmess;
-    TextView txtcartNoti;
+    TextView txtcartNoti, txtsnkAmount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +40,7 @@ public class categories extends AppCompatActivity {
             public void onClick(View v) {
                 //Chuyển đổi activity để khi nhấn vào imageview nó chuyển qua layout khác
                 Intent intent = new Intent(categories.this, ProductsActivity.class);
-                intent.putExtra("Product",txtsneaker.getText());
+                intent.putExtra("Product", txtsneaker.getText());
                 startActivity(intent);
             }
         });
@@ -47,10 +50,27 @@ public class categories extends AppCompatActivity {
         txtsandal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Chuyển đổi activity để khi nhấn vào imageview nó chuyển qua layout khác
                 Intent intent = new Intent(categories.this, ProductsActivity.class);
-                intent.putExtra("Product",txtsandal.getText());
+                intent.putExtra("Product", txtsandal.getText());
                 startActivity(intent);
+            }
+        });
+
+        //get amount of each product shoes
+        txtsnkAmount = (TextView) findViewById(R.id.txt_sneakerAmount);
+        DatabaseReference prdAmount = FirebaseDatabase.getInstance().getReference("Sneakers");
+        prdAmount.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int itemCount = 0;
+                for (DataSnapshot Snapshot : snapshot.getChildren()) {
+                    itemCount += (int) Snapshot.getChildrenCount();
+                }
+                txtsnkAmount.setText("(" + String.valueOf(itemCount) + ")");
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w("Failed to read value.", error.toException());
             }
         });
 
