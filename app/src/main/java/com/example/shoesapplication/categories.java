@@ -26,9 +26,8 @@ import java.util.List;
 
 public class categories extends AppCompatActivity {
     BottomNavigationView btnavview;
-    private TextView txtsneaker, txtsandal;
     ImageView imgcart, imgmess;
-    TextView txtcartNoti, txtsnkAmount;
+    TextView txtcartNoti;
     RecyclerView rv;
     List<Category> categories;
 
