@@ -119,7 +119,7 @@ public class SearchActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.accountNav:
-                        startActivity(new Intent(getApplicationContext(), account.class));
+                        startActivity(new Intent(getApplicationContext(), com.example.shoesapplication.AccountPackage.AccountDDNActivity.class));
                         overridePendingTransition(0, 0);
                         return true;
                     case R.id.homeNav:

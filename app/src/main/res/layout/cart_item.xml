@@ -88,7 +88,7 @@
             android:background="@drawable/imgborder"
             android:clickable="true"
             android:padding="10dp"
-            android:src="@drawable/minus"
+            android:src="@drawable/minusbutton"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent" />
 
@@ -117,7 +117,7 @@
             android:background="@drawable/imgborder"
             android:clickable="true"
             android:padding="10dp"
-            android:src="@drawable/plus"
+            android:src="@drawable/plusbutton"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@id/txt_itemAmount" />
     </androidx.constraintlayout.widget.ConstraintLayout>

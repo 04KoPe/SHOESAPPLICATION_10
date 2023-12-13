@@ -288,7 +288,7 @@
                     android:id="@+id/img_cate"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/categories"
+                    android:src="@drawable/category_svgrepo_com"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
