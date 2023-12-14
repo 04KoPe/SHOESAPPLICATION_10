@@ -47,57 +47,13 @@ public class LogInActivity extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!validateUsername() | !validatePassword()){
+                if (!validateUsername() | !validatePassword()) {
 
-                }else {
+                } else {
                     checkUser();
                 }
             }
         });
-
-//        loginBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                String emailR = userName.getText().toString();
-//                String passwordR = password.getText().toString();
-//                if(!emailR.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(emailR).matches()) {
-//                    if (!passwordR.isEmpty()) {
-//                        auth.signInWithEmailAndPassword(emailR, passwordR)
-//                                .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-//                                    @Override
-//                                    public void onSuccess(AuthResult authResult) {
-//                                        Toast.makeText(LogInActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
-//                                        startActivity(new Intent(LogInActivity.this, HomePage.class));
-//                                        finish();
-//                                    }
-//                                }).addOnFailureListener(new OnFailureListener() {
-//                                    @Override
-//                                    public void onFailure(@NonNull Exception e) {
-//                                        Toast.makeText(LogInActivity.this, "Login Failed! Check your password try again!",
-//                                                Toast.LENGTH_SHORT).show();
-//                                    }
-//                                });
-//                    } else{
-//                        loginBtn.setError("Password cannot be empty!");
-//                        Toast.makeText(LogInActivity.this, "Password cannot be empty!", Toast.LENGTH_SHORT).show();
-//                    }
-//
-//
-//                }
-//                else if(emailR.isEmpty()){
-//                    loginBtn.setError("Email cannot be empty!");
-//                    Toast.makeText(LogInActivity.this, "Email cannot be empty", Toast.LENGTH_SHORT).show();
-//                }
-//                else{
-//                    loginBtn.setError("Please enter correct email!");
-//                    Toast.makeText(LogInActivity.this, "Please enter correct email!", Toast.LENGTH_SHORT).show();
-//                }
-//
-//            }
-//
-//        });
-
 
         txtsignup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,7 +86,7 @@ public class LogInActivity extends AppCompatActivity {
         return true;
     }
 
-    public void checkUser(){
+    public void checkUser() {
         String username = userName.getText().toString().trim();
         String password = passWord.getText().toString().trim();
 
@@ -139,27 +95,22 @@ public class LogInActivity extends AppCompatActivity {
         checkUser.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
+                if (snapshot.exists()) {
                     userName.setError(null);
-                    for(DataSnapshot userSnapshot : snapshot.getChildren()){
+                    for (DataSnapshot userSnapshot : snapshot.getChildren()) {
                         String passwordDB = userSnapshot.child("password").getValue(String.class);
-                        if(!passwordDB.equals("")){
-                            if(passwordDB.equals(password)){
-                                userName.setError(null);
-                                Intent intent = new Intent(LogInActivity.this, AccountDDNActivity.class);
-                                intent.putExtra("username",username);
-                                startActivity(intent);
-                                return;
-                            } else {
-                                passWord.setError("Sai Pasword");
-                                passWord.requestFocus();
-                            }
+                        if (passwordDB.equals(password)) {
+                            userName.setError(null);
+                            passWord.setError(null);
+                            Intent intent = new Intent(LogInActivity.this, AccountDDNActivity.class);
+                            startActivity(intent);
+                            return;
                         } else {
-                            passWord.setError("Password is empty");
+                            passWord.setError("Sai Pasword");
                             passWord.requestFocus();
                         }
                     }
-                }else {
+                } else {
                     userName.setError("Không có tài khoản này!");
                     userName.requestFocus();
                 }
