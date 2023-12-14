@@ -2,6 +2,7 @@ package com.example.shoesapplication.AccountPackage;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -19,70 +20,83 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.Objects;
 
 public class LogInActivity extends AppCompatActivity {
     TextView txtsignup;
-    private EditText userName,password;
+    private EditText userName, passWord;
     private Button loginBtn;
-    private FirebaseAuth auth;
-
-    public void direct(){
-        txtsignup = findViewById(R.id.signupText);
-        loginBtn = findViewById(R.id.logInBtn);
-        userName = findViewById(R.id.usernameEdit);
-        password = findViewById(R.id.passwordEdit);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
 
-        direct();
+        txtsignup = findViewById(R.id.signupText);
+        loginBtn = findViewById(R.id.logIn_Btn);
+        userName = findViewById(R.id.username_Edit);
+        passWord = findViewById(R.id.password_Edit);
 
-        loginBtn = findViewById(R.id.logInBtn);
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
+                if(!validateUsername() | !validatePassword()){
 
-                String emailR = userName.getText().toString();
-                String passwordR = password.getText().toString();
-                if(!emailR.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(emailR).matches()) {
-                    if (!passwordR.isEmpty()) {
-                        auth.signInWithEmailAndPassword(emailR, passwordR)
-                                .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                                    @Override
-                                    public void onSuccess(AuthResult authResult) {
-                                        Toast.makeText(LogInActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(LogInActivity.this, HomePage.class));
-                                        finish();
-                                    }
-                                }).addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(LogInActivity.this, "Login Failed! Check your password try again!",
-                                                Toast.LENGTH_SHORT).show();
-                                    }
-                                });
-                    } else{
-                        loginBtn.setError("Password cannot be empty!");
-                        Toast.makeText(LogInActivity.this, "Password cannot be empty!", Toast.LENGTH_SHORT).show();
-                    }
-
-
+                }else {
+                    checkUser();
                 }
-                else if(emailR.isEmpty()){
-                    loginBtn.setError("Email cannot be empty!");
-                    Toast.makeText(LogInActivity.this, "Email cannot be empty", Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    loginBtn.setError("Please enter correct email!");
-                    Toast.makeText(LogInActivity.this, "Please enter correct email!", Toast.LENGTH_SHORT).show();
-                }
-
             }
-
         });
+
+//        loginBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                String emailR = userName.getText().toString();
+//                String passwordR = password.getText().toString();
+//                if(!emailR.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(emailR).matches()) {
+//                    if (!passwordR.isEmpty()) {
+//                        auth.signInWithEmailAndPassword(emailR, passwordR)
+//                                .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+//                                    @Override
+//                                    public void onSuccess(AuthResult authResult) {
+//                                        Toast.makeText(LogInActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
+//                                        startActivity(new Intent(LogInActivity.this, HomePage.class));
+//                                        finish();
+//                                    }
+//                                }).addOnFailureListener(new OnFailureListener() {
+//                                    @Override
+//                                    public void onFailure(@NonNull Exception e) {
+//                                        Toast.makeText(LogInActivity.this, "Login Failed! Check your password try again!",
+//                                                Toast.LENGTH_SHORT).show();
+//                                    }
+//                                });
+//                    } else{
+//                        loginBtn.setError("Password cannot be empty!");
+//                        Toast.makeText(LogInActivity.this, "Password cannot be empty!", Toast.LENGTH_SHORT).show();
+//                    }
+//
+//
+//                }
+//                else if(emailR.isEmpty()){
+//                    loginBtn.setError("Email cannot be empty!");
+//                    Toast.makeText(LogInActivity.this, "Email cannot be empty", Toast.LENGTH_SHORT).show();
+//                }
+//                else{
+//                    loginBtn.setError("Please enter correct email!");
+//                    Toast.makeText(LogInActivity.this, "Please enter correct email!", Toast.LENGTH_SHORT).show();
+//                }
+//
+//            }
+//
+//        });
 
 
         txtsignup.setOnClickListener(new View.OnClickListener() {
@@ -90,6 +104,70 @@ public class LogInActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(LogInActivity.this, SignUpActivity.class);
                 startActivity(intent);
+            }
+        });
+    }
+
+    public Boolean validateUsername() {
+        String val = userName.getText().toString();
+        if (val.isEmpty()) {
+            userName.setError("Không để trống Username!");
+            return false;
+        } else {
+            userName.setError(null);
+        }
+        return true;
+    }
+
+    public Boolean validatePassword() {
+        String val = passWord.getText().toString();
+        if (val.isEmpty()) {
+            passWord.setError("Không để trống Password!");
+            return false;
+        } else {
+            passWord.setError(null);
+        }
+        return true;
+    }
+
+    public void checkUser(){
+        String username = userName.getText().toString().trim();
+        String password = passWord.getText().toString().trim();
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users");
+        Query checkUser = databaseReference.orderByChild("userName").equalTo(username);
+        checkUser.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    userName.setError(null);
+                    for(DataSnapshot userSnapshot : snapshot.getChildren()){
+                        String passwordDB = userSnapshot.child("password").getValue(String.class);
+                        if(!passwordDB.equals("")){
+                            if(passwordDB.equals(password)){
+                                userName.setError(null);
+                                Intent intent = new Intent(LogInActivity.this, AccountDDNActivity.class);
+                                intent.putExtra("username",username);
+                                startActivity(intent);
+                                return;
+                            } else {
+                                passWord.setError("Sai Pasword");
+                                passWord.requestFocus();
+                            }
+                        } else {
+                            passWord.setError("Password is empty");
+                            passWord.requestFocus();
+                        }
+                    }
+                }else {
+                    userName.setError("Không có tài khoản này!");
+                    userName.requestFocus();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w("Failed to read value.", error.toException());
             }
         });
     }

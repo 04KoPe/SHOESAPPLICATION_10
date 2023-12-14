@@ -20,7 +20,7 @@
         <activity android:name=".ItemCheckout.Checkout" />
         <activity android:name=".ProductPackage.ProductsActivity" />
 
-        <activity android:name=".AccountPackage.account" />
+        <activity android:name=".CategoryPackage.categories" />
         <activity android:name=".AccountPackage.AccountDDNActivity" />
         <activity android:name=".AccountPackage.SignUpActivity" />
         <activity android:name=".AccountPackage.LogInActivity" />
@@ -33,7 +33,7 @@
         <activity android:name=".Message" />
         <activity android:name=".Notifications" />
         <activity
-            android:name=".CategoryPackage.categories"
+            android:name=".AccountPackage.account"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

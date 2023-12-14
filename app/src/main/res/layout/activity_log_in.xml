@@ -45,7 +45,7 @@
 
         <EditText
 
-            android:id="@+id/usernameEdit"
+            android:id="@+id/username_Edit"
             android:layout_width="350dp"
             android:layout_height="40dp"
             android:drawablePadding="5dp"
@@ -62,14 +62,14 @@
         </EditText>
 
         <EditText
-            android:id="@+id/passwordEdit"
+            android:id="@+id/password_Edit"
             android:layout_width="350dp"
             android:layout_height="40dp"
             android:drawablePadding="5dp"
             android:paddingLeft="10dp"
             android:drawableStart="@drawable/baseline_lock_24"
             android:layout_centerHorizontal="true"
-            android:layout_below="@id/usernameEdit"
+            android:layout_below="@id/username_Edit"
             android:layout_marginTop="15dp"
             android:background="@drawable/edit_round"
             android:inputType="textPassword"
@@ -83,8 +83,8 @@
             android:id="@+id/checkboxRememberme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@id/passwordEdit"
-            android:layout_below="@id/passwordEdit"
+            android:layout_alignLeft="@id/password_Edit"
+            android:layout_below="@id/password_Edit"
             android:layout_marginTop="13dp">
 
         </CheckBox>
@@ -94,7 +94,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/checkboxRememberme"
-            android:layout_below="@id/passwordEdit"
+            android:layout_below="@id/password_Edit"
             android:layout_marginTop="17dp"
             android:text="Remberme me"
             android:textSize="16sp">
@@ -102,11 +102,11 @@
         </TextView>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/logInBtn"
+            android:id="@+id/logIn_Btn"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_below="@id/passwordEdit"
+            android:layout_below="@id/password_Edit"
             android:layout_marginTop="60dp"
             android:background="@drawable/edit_round_abd7ff"
             android:text="Sign In"
@@ -119,8 +119,8 @@
             android:id="@+id/forgotPassText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/logInBtn"
-            android:layout_alignRight="@id/logInBtn"
+            android:layout_below="@id/logIn_Btn"
+            android:layout_alignRight="@id/logIn_Btn"
             android:layout_marginTop="20dp"
             android:textSize="20sp"
             android:text="@string/forgotUnderline"
@@ -134,7 +134,7 @@
             android:layout_height="1dp"
             android:layout_below="@id/forgotPassText"
             android:layout_marginTop="40dp"
-            android:layout_alignLeft="@id/logInBtn"
+            android:layout_alignLeft="@id/logIn_Btn"
             android:background="#917E7E">
 
         </View>
@@ -159,7 +159,7 @@
             android:layout_height="1dp"
             android:layout_below="@id/forgotPassText"
             android:layout_marginTop="40dp"
-            android:layout_alignRight="@id/logInBtn"
+            android:layout_alignRight="@id/logIn_Btn"
             android:background="#917E7E">
 
         </View>
