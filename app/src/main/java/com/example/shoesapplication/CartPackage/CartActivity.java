@@ -16,7 +16,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.shoesapplication.ItemCheckout.Checkout;
 import com.example.shoesapplication.Message;
-import com.example.shoesapplication.ProductPackage.ProductsActivity;
 import com.example.shoesapplication.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
