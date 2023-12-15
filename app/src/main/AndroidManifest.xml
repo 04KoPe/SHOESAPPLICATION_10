@@ -29,11 +29,11 @@
         <activity android:name=".SearchPackage.SearchActivity" />
         <activity android:name=".CartPackage.CartActivity" />
 
-        <activity android:name=".tenshoes" />
+        <activity android:name=".AccountPackage.account" />
         <activity android:name=".Message" />
         <activity android:name=".Notifications" />
         <activity
-            android:name=".AccountPackage.account"
+            android:name=".tenshoes"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
