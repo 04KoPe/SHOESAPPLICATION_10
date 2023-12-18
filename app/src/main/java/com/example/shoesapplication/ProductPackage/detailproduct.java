@@ -167,20 +167,22 @@ public class detailproduct extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String cartID = txt_shoeID.getText().toString();
+                if (cartID.isEmpty()) cartID = txt_shoeName.getText().toString();
                 DatabaseReference database = FirebaseDatabase.getInstance().getReference("Cart");
+                String finalCartID = cartID;
                 database.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         int quantity = Integer.parseInt(txtnumOrder.getText().toString());
-                        if (snapshot.hasChild(cartID)) // Check if the cart item exists
+                        if (snapshot.hasChild(finalCartID)) // Check if the cart item exists
                         {
-                            Cart existingItem = snapshot.child(cartID).getValue(Cart.class);
+                            Cart existingItem = snapshot.child(finalCartID).getValue(Cart.class);
                             if (existingItem != null) {
                                 int newqtt = existingItem.getQuantity() + quantity;
                                 float newttPrice = Float.parseFloat(shoePrice) * newqtt;
                                 existingItem.setQuantity(newqtt);
                                 existingItem.setTotalPrice(newttPrice);
-                                database.child(cartID).setValue(existingItem);
+                                database.child(finalCartID).setValue(existingItem);
                             }
                         } else {
                             Cart newCartItem = new Cart();
@@ -190,7 +192,7 @@ public class detailproduct extends AppCompatActivity {
                             newCartItem.setOldPrice(shoeOldPrice);
                             newCartItem.setQuantity(quantity);
                             newCartItem.setTotalPrice(Float.parseFloat(shoePrice) * quantity);
-                            database.child(cartID).setValue(newCartItem);
+                            database.child(finalCartID).setValue(newCartItem);
                         }
                         Toast.makeText(detailproduct.this, "Đã thêm sản phẩm vào giỏ hàng", Toast.LENGTH_SHORT).show();
                     }
